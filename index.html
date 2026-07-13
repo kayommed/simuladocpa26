@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado CPA - Analytics Premium</title>
+    <style>
+        :root {
+            --primary: #0A2540;
+            --secondary: #635BFF;
+            --background: #F8F9FA;
+            --card-bg: #FFFFFF;
+            --success: #00D4B2;
+            --danger: #FF6B6B;
+            --text: #333333;
+            --text-muted: #6A737D;
+        }
+
+        body {
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 8px; }
+        p.subtitle { color: var(--text-muted); font-size: 1.1rem; }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(10, 37, 64, 0.05);
+            margin-bottom: 25px;
+            border: 1px solid #E6EBF1;
+            transition: transform 0.2s;
+        }
+
+        .topic-badge {
+            background: #E6EBF1;
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 14px 20px;
+            border: 2px solid #E6EBF1;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option:hover {
+            border-color: var(--secondary);
+            background-color: #F4F3FF;
+        }
+
+        .option input {
+            margin-right: 15px;
+            transform: scale(1.2);
+        }
+
+        .option.selected {
+            border-color: var(--secondary);
+            background-color: #EEECFF;
+            font-weight: 600;
+        }
+
+        /* Classes de Feedback pós-finalização */
+        .option.correct-answer {
+            border-color: #00D4B2 !important;
+            background-color: #E6FFF6 !important;
+            color: #006653;
+        }
+
+        .option.wrong-answer {
+            border-color: var(--danger) !important;
+            background-color: #FFEBEB !important;
+            color: #990000;
+        }
+
+        .explanation-box {
+            margin-top: 15px;
+            padding: 15px 20px;
+            background-color: #F8F9FA;
+            border-left: 4px solid var(--secondary);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Painel de Controle / Botões */
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 16px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-finish { background: var(--secondary); color: white; }
+        .btn-finish:hover { background: #5145CD; }
+        .btn-restart { background: var(--primary); color: white; }
+        .btn-restart:hover { background: #07192B; }
+
+        /* Dashboard de Conclusão */
+        #completion-page { display: none; }
+        
+        .score-banner {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--primary), #1A365D);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .score-num { font-size: 4rem; font-weight: 700; margin: 10px 0; }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .analytics-grid { grid-template-columns: 1fr; }
+        }
+
+        .analytics-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #E6EBF1;
+        }
+
+        .analytics-card h3 { margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        
+        .icon-forte { color: #00D4B2; }
+        .icon-melhorar { color: #FF9F43; }
+        .icon-revisar { color: #FF6B6B; }
+        .icon-aprender { color: #635BFF; }
+
+        .analytics-list { padding-left: 20px; margin-bottom: 0; }
+        .analytics-list li { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- TELA DO SIMULADO -->
+        <div id="quiz-page">
+            <header>
+                <h1>📝 Simulado de Alta Performance CPA</h1>
+                <p class="subtitle">Responda às 10 questões abaixo. O diagnóstico completo será gerado ao finalizar.</p>
+            </header>
+
+            <div id="questions-container"></div>
+
+            <div class="controls">
+                <button class="btn-finish" onclick="finalizarSimulado()">🏁 Finalizar e Gerar Diagnóstico</button>
+            </div>
+        </div>
+
+        <!-- TELA DE CONCLUSÃO E ANALYTICS -->
+        <div id="completion-page">
+            <div class="score-banner">
+                <h2>Simulado Concluído!</h2>
+                <div class="score-num" id="display-score">0/10</div>
+                <p id="display-percent">Aproveitamento: 0%</p>
+            </div>
+
+            <h2>📊 Diagnóstico Personalizado de Performance</h2>
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <h3 class="icon-forte">💪 Pontos Fortes</h3>
+                    <ul class="analytics-list" id="lista-fortes"></ul>
+                </div>
+                <div class="analytics-card">
+                    <h3 class="icon-melhorar">⚠️ Áreas a Melhorar</h3>
+                    <ul class="analytics-list" id="lista-melhorar"></ul>
+                </div>
+                <div class="analytics-card">
+                    <h3 class="icon-revisar">🔍 O que Revisar Imediatamente</h3>
+                    <ul class="analytics-list" id="lista-revisar"></ul>
+                </div>
+                <div class="analytics-card">
+                    <h3 class="icon-aprender">💡 O que Aprender/Aprofundar</h3>
+                    <ul class="analytics-list" id="lista-aprender"></ul>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <button class="btn-restart" onclick="recomecarSimulado()">🔄 Recomeçar com Novas Questões</button>
+            </div>
+
+            <h2>🔎 Revisão Detalhada das Questões</h2>
+            <div id="review-container"></div>
+        </div>
+    </div>
+
+    <script>
+        // Banco de Dados robusto com questões retiradas dos seus anexos
+        const BANCO_QUESTOES = [
+            {
+                id: 1,
+                topico: "Módulo 1: Sistema Financeiro Nacional",
+                conceito: "Atribuições regulatórias do BACEN e Política Monetária",
+                enunciado: "O Banco Central do Brasil (BACEN) exerce um papel fundamental na condução da política monetária. Considerando suas atribuições, analise as afirmativas a seguir:\n\nI - O BACEN, por meio da política monetária, controla os gastos públicos, evitando a criação de demanda agregada com efeitos inflacionários.\nII - O BACEN regula, por meio de instrumentos próprios, a quantidade de moeda em circulação na economia.\nIII - O BACEN atua, de forma direta ou por meio de operações no mercado de câmbio, incluindo contratos de derivativos, para suavizar excessivas oscilações da taxa de câmbio.\n\nEstá correto o que se afirma APENAS em:",
+                opcoes: ["A) II e III.", "B) II.", "C) I e II.", "D) I."],
+                correta: 0,
+                explicacao: "O BACEN regula o meio circulante (II) e executa a política cambial intervindo para mitigar volatilidades extremas (III)[cite: 2]. O item I está incorreto porque o controle de gastos públicos é competência de política fiscal (Poder Executivo), não cambial ou monetária executada pelo BACEN[cite: 2]."
+            },
+            {
+                id: 2,
+                topico: "Módulo 1: Sistema Financeiro Nacional",
+                conceito: "Estrutura Administrativa e Regime Jurídico da CVM",
+                enunciado: "A Comissão de Valores Mobiliários (CVM) é uma entidade autárquica em regime especial, vinculada ao Ministério da Fazenda. Além de sua autonomia e independência administrativa, a CVM é caracterizada por ser administrada por:",
+                opcoes: [
+                    "A) Um Presidente e quatro Diretores, nomeados por concurso público de provas e títulos.",
+                    "B) Um Presidente e oito Diretores, nomeados pelo Ministro da Fazenda.",
+                    "C) Um Presidente e oito Diretores, aprovados previamente pelo Senado Federal.",
+                    "D) Um Presidente e quatro Diretores, nomeados pelo Presidente da República, após aprovação pelo Senado Federal."
+                ],
+                correta: 3,
+                explicacao: "Conforme o arcabouço normativo, o colegiado da CVM é composto por um Presidente e quatro Diretores, escolhidos pelo Presidente da República dentre pessoas com reputação ilibada e aprovados pelo Senado[cite: 2]."
+            },
+            {
+                id: 3,
+                topico: "Módulo 2: Autorregulação e Ética",
+                conceito: "Funções institucionais e códigos de autorregulação ANBIMA",
+                enunciado: "Dentro do Sistema Financeiro Nacional, qual das alternativas abaixo descreve uma competência legítima da ANBIMA?",
+                opcoes: [
+                    "A) Legislar sobre regras de enquadramento de Fundos de Investimento.",
+                    "B) Fiscalizar e aplicar sanções pecuniárias ao mercado de ações corporativo.",
+                    "C) Criar procedimentos e normas que permitam a autorregulação voluntária do mercado de capitais.",
+                    "D) Determinar e regular os padrões operacionais do mercado cambial interbancário."
+                ],
+                correta: 2,
+                explicacao: "A ANBIMA é uma associação de caráter privado responsável por estabelecer códigos de melhores práticas e autorregulação para as instituições aderentes no mercado de capitais, não possuindo poder legislativo estatal."
+            },
+            {
+                id: 4,
+                topico: "Módulo 3: Economia e Finanças",
+                conceito: "Instrumentos de Política Fiscal e Dinâmica de Demanda",
+                enunciado: "Preocupado com o superaquecimento da atividade econômica e pressões inflacionárias na demanda agregada, o governo adota medidas de controle. Para que uma ferramenta execute uma Política Fiscal Contracionista (o oposto de expansionista), o governo deveria adotar:",
+                opcoes: [
+                    "A) O aumento dos gastos públicos e redução de impostos de importação.",
+                    "B) A diminuição dos gastos públicos ou aumento da carga tributária.",
+                    "C) A redução da taxa de redesconto bancário junto às instituições comercias.",
+                    "D) Operações massivas de compra de títulos públicos via open market pelo BACEN."
+                ],
+                correta: 1,
+                explicacao: "A política fiscal lida diretamente com arrecadação (tributos) e gastos públicos[cite: 2]. Para desaquecer a economia (ação contracionista/repressiva), reduz-se o gasto estatal ou aumenta-se o imposto retirando liquidez[cite: 2]."
+            },
+            {
+                id: 5,
+                topico: "Módulo 3: Economia e Finanças",
+                conceito: "Sistemas de Amortização de Crédito Imobiliário (SAC vs Price)",
+                enunciado: "Nathan analisa duas linhas de crédito habitacional com taxas de juros prefixadas, prazos e montantes idênticos: uma estruturada no sistema SAC e outra no sistema Price. O profissional de investimentos deve esclarecer que:",
+                opcoes: [
+                    "A) O total de juros acumulados e pagos será idêntico em ambas as modalidades.",
+                    "B) A tabela Price possui prestações constantes e amortização do principal crescente, enquanto o SAC tem prestações decrescentes.",
+                    "C) O sistema SAC possui amortização constante mas a prestação inicial é inferior à da Price.",
+                    "D) Na tabela Price, o valor amortizado da dívida é fixado de maneira linear e constante em todo o cronograma."
+                ],
+                correta: 1,
+                explicacao: "No Sistema SAC, a amortização é constante e os juros caem linearmente, gerando parcelas decrescentes[cite: 2]. Na Price (Sistema Francês), as parcelas são fixas, fazendo a amortização inicial ser menor e crescer com o tempo[cite: 2]."
+            },
+            {
+                id: 6,
+                topico: "Módulo 4: Renda Fixa e Variável",
+                conceito: "Dinâmica da Poupança sob regras da Taxa Selic",
+                enunciado: "Henrique atende Gabriela, que possui dúvidas sobre a rentabilidade real e regras de remuneração da caderneta de poupança para pessoa física. O gerente deve informá-la corretamente que:",
+                opcoes: [
+                    "A) Quando a taxa Selic está igual ou abaixo de 8,5% ao ano, a poupança rende 70% da Selic + Taxa Referencial (TR).",
+                    "B) Independentemente do patamar macroeconômico da Selic, a poupança rende uma taxa fixa de 0,5% ao mês.",
+                    "C) A poupança possui rendimento com liquidez diária real capitalizado e creditado a cada 24 horas úteis.",
+                    "D) A Taxa Referencial (TR) adiciona uma rentabilidade real prefixada e imutável de 1% ao ano às aplicações."
+                ],
+                correta: 0,
+                explicacao: "Pela legislação, quando a meta da Selic for menor ou igual a 8,5% a.a., a remuneração passa a ser 70% da Selic mais a TR, perdendo atratividade frente a papéis indexados ao CDI integral."
+            },
+            {
+                id: 7,
+                topico: "Módulo 4: Renda Fixa e Variável",
+                conceito: "Características e Cobertura de Risco de Crédito Privado",
+                enunciado: "André demonstra interesse em diversificar seu capital através de Debêntures, Certificados de Recebíveis Imobiliários (CRI) e do Agronegócio (CRA). Mônica, especialista certificada, deve esclarecer sobre as garantias desses ativos que:",
+                opcoes: [
+                    "A) São garantidos pelo Fundo Garantidor de Créditos (FGC) até o teto de R$ 250 mil por CPF e instituição.",
+                    "B) O investidor assume integralmente o risco de crédito corporativo do emissor/lastro, pois carecem de proteção do FGC.",
+                    "C) Possuem liquidez soberana imediata assegurada pelo Tesouro Nacional através do mecanismo de recompra.",
+                    "D) Têm rentabilidade nominal obrigatoriamente garantida pelo Tesouro Direto em caso de recuperação judicial."
+                ],
+                correta: 1,
+                explicacao: "Debêntures, CRIs e CRAs são títulos corporativos securitizados ou de crédito direto. Eles NÃO possuem proteção do FGC, expondo o investidor ao risco puro de crédito da empresa ou do fluxo de recebíveis lastreado."
+            },
+            {
+                id: 8,
+                topico: "Módulo 5: Fundos de Investimento",
+                conceito: "Governança e Estruturas de Classes sob CVM 175",
+                enunciado: "Um fundo de investimento de classe única possui duas subclasses de cotas: uma desenhada para investidores qualificados (Taxa Adm: 1% a.a.) e outra para o público geral (Taxa Adm: 2% a.a.). Adicionalmente, o administrador distribui as operações mais rentáveis prioritariamente à subclasse dos qualificados, publicando em atas com total transparência (full disclosure). Essa conduta é:",
+                opcoes: [
+                    "A) Totalmente permitida devido à transparência total adotada.",
+                    "B) Permitida apenas no tocante às taxas administrativas diferenciadas (Prática I), mas proibida na diferenciação de alocação de ativos (Prática II).",
+                    "C) Permitida na alocação diferenciada desde que haja aprovação em assembleia geral de cotistas por maioria simples.",
+                    "D) Totalmente proibida pela CVM em ambos os aspectos operacionais operados pelo administrador fiduciário."
+                ],
+                correta: 1,
+                explicacao: "A diferenciação de taxas e públicos-alvo entre subclasses é legítima e operacionalizável pela CVM 175. Contudo, beneficiar uma subclasse em detrimento de outra na alocação de trades (operações) viola o dever de equidade e o princípio fiduciário, sendo vedado mesmo com disclosure."
+            },
+            {
+                id: 9,
+                topico: "Módulo 6: Previdência Complementar",
+                conceito: "Tributação e Regras de Portabilidade PGBL vs VGBL",
+                enunciado: "Um cliente possui uma reserva financeira consolidada alocada em um plano do tipo PGBL e solicita ao consultor a transferência total desses recursos diretamente para um plano estruturado como VGBL. Diante da regra regulatória:",
+                opcoes: [
+                    "A) A operação pode ser efetuada via portabilidade externa mantendo diferimento do Imposto de Renda.",
+                    "B) O cliente terá obrigatoriamente que resgatar os recursos do PGBL (sofrendo incidência de IR sobre o total) para posterior aporte no VGBL.",
+                    "C) A transferência direta é permitida via portabilidade interna e goza de isenção tributária integral.",
+                    "D) A portabilidade é aceita apenas se ambos os planos compartilharem a mesma tábua atuarial de sobrevivência."
+                ],
+                correta: 1,
+                explicacao: "Não existe portabilidade entre modalidades estruturais distintas (PGBL para VGBL ou vice-versa). Para migrar, o investidor é obrigado a liquidar o plano original, gerando o fato gerador do Imposto de Renda sobre a base correspondente antes de reinvestir."
+            },
+            {
+                id: 10,
+                topico: "Módulo 7: Compliance e Prevenção à Lavagem de Dinheiro",
+                conceito: "Tipologias e Práticas de Crime de Manipulação de Mercado",
+                enunciado: "Práticas operacionais conhecidas como Spoofing e Layering constituem infrações graves contra o mercado de capitais. A distinção conceitual entre as duas tipologias reside no fato de que:",
+                opcoes: [
+                    "A) O Spoofing configura quebra de sigilo por Insider Trading e o Layering é o Front Running de corretoras.",
+                    "B) O Spoofing envolve a inserção de ordens falsas de tamanho atípico para simular liquidez e forçar preços, enquanto o Layering consiste na criação de múltiplas camadas de ordens falsas em níveis sucessivos de preço.",
+                    "C) O Layering é caracterizado como lavagem de capitais em fase de integração e o Spoofing como ocultação física.",
+                    "D) Ambas as práticas são idênticas, mudando o termo técnico apenas se operadas em derivativos ou mercado à vista."
+                ],
+                correta: 1,
+                explicacao: "Ambas são táticas de manipulação por ordens que o operador não pretende executar. O Spoofing cria uma grande pressão visual unilateral, e o Layering constrói uma escada ou camadas de ofertas falsas para distorcer o book de ofertas de forma artificial."
+            }
+        ];
+
+        let questoesRodada = [];
+        let respostasUsuario = {};
+        let ultimosIds = [];
+
+        function iniciarQuiz() {
+            respostasUsuario = {};
+            document.getElementById('quiz-page').style.display = 'block';
+            document.getElementById('completion-page').style.display = 'none';
+            
+            // Lógica para sortear 10 questões evitando repetir a rodada imediatamente anterior
+            let filtradas = BANCO_QUESTOES.filter(q => !ultimosIds.includes(q.id));
+            if(filtradas.length < 10) filtradas = BANCO_QUESTOES; // Fallback caso o banco zere
+            
+            questoesRodada = filtradas.sort(() => 0.5 - Math.random()).slice(0, 10);
+            ultimosIds = questoesRodada.map(q => q.id);
+
+            const container = document.getElementById('questions-container');
+            container.innerHTML = '';
+
+            questoesRodada.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <span class="topic-badge">${q.topico}</span>
+                    <div class="question-text">Questão ${idx + 1}.</div>
+                    <p style="white-space: pre-line; font-weight: 500;">${q.enunciado}</p>
+                    <div id="options-box-${idx}"></div>
+                `;
+                container.appendChild(card);
+
+                const optBox = document.getElementById(`options-box-${idx}`);
+                q.opcoes.forEach((opt, optIdx) => {
+                    const label = document.createElement('label');
+                    label.className = 'option';
+                    label.id = `label-${idx}-${optIdx}`;
+                    label.innerHTML = `
+                        <input type="radio" name="question-${idx}" value="${optIdx}" onclick="registrarResposta(${idx}, ${optIdx})">
+                        ${opt}
+                    `;
+                    optBox.appendChild(label);
+                });
+            });
+        }
+
+        function registrarResposta(qIdx, optIdx) {
+            respostasUsuario[qIdx] = optIdx;
+            
+            // Estilização visual da opção selecionada pelo usuário
+            const parent = document.getElementById(`options-box-${qIdx}`);
+            const labels = parent.getElementsByTagName('label');
+            for(let i=0; i<labels.length; i++) {
+                labels[i].classList.remove('selected');
+            }
+            document.getElementById(`label-${qIdx}-${optIdx}`).classList.add('selected');
+        }
+
+        function finalizarSimulado() {
+            if (Object.keys(respostasUsuario).length < 10) {
+                alert("⚠️ Atenção: Você precisa selecionar uma alternativa em todas as 10 questões antes de finalizar o teste!");
+                return;
+            }
+
+            document.getElementById('quiz-page').style.display = 'none';
+            document.getElementById('completion-page').style.display = 'block';
+            window.scrollTo(0,0);
+
+            let acertos = 0;
+            let performanceTopicos = {};
+
+            // Inicializa métricas de tópicos
+            questoesRodada.forEach(q => {
+                if(!performanceTopicos[q.topico]) {
+                    performanceTopicos[q.topico] = { total: 0, acertos: 0, conceitosErrados: [], conceitosAcertados: [] };
+                }
+                performanceTopicos[q.topico].total++;
+            });
+
+            // Processa respostas
+            questoesRodada.forEach((q, idx) => {
+                const userAns = respostasUsuario[idx];
+                const acertou = (userAns === q.correta);
+
+                if(acertou) {
+                    acertos++;
+                    performanceTopicos[q.topico].acertos++;
+                    performanceTopicos[q.topico].conceitosAcertados.push(q.conceito);
+                } else {
+                    performanceTopicos[q.topico].conceitosErrados.push(q.conceito);
+                }
+            });
+
+            // Exibe Placar
+            document.getElementById('display-score').innerText = `${acertos}/10`;
+            const pct = (acertos / 10) * 100;
+            document.getElementById('display-percent').innerText = `Aproveitamento Global: ${pct}%`;
+
+            // Processa os 4 Quadrantes de Recomendação Teórica
+            processarRecomendacoes(performanceTopicos);
+
+            // Renderiza tela de revisão
+            renderizarRevisao();
+        }
+
+        function processarRecomendacoes(perf) {
+            const fortesUl = document.getElementById('lista-fortes');
+            const melhorarUl = document.getElementById('lista-melhorar');
+            const revisarUl = document.getElementById('lista-revisar');
+            const aprenderUl = document.getElementById('lista-aprender');
+
+            fortesUl.innerHTML = ''; melhorarUl.innerHTML = ''; revisarUl.innerHTML = ''; aprenderUl.innerHTML = '';
+
+            let temFortes = false, temMelhorar = false, temRevisar = false, temAprender = false;
+
+            for (let t in perf) {
+                let dado = perf[t];
+                let taxaAcerto = dado.acertos / dado.total;
+
+                if (taxaAcerto === 1) {
+                    let li = document.createElement('li');
+                    li.innerHTML = `<strong>${t}</strong> (100% de acerto)`;
+                    fortesUl.appendChild(li);
+                    temFortes = true;
+                } else {
+                    let li = document.createElement('li');
+                    li.innerHTML = `<strong>${t}</strong> (Aproveitamento: ${Math.round(taxaAcerto*100)}%)`;
+                    melhorarUl.appendChild(li);
+                    temMelhorar = true;
+                }
+
+                // Conceitos errados vão para o quadrante "O que Revisar"
+                dado.conceitosErrados.forEach(c => {
+                    let li = document.createElement('li');
+                    li.innerHTML = `Revisar a lógica e regras de: <em>${c}</em>`;
+                    revisarUl.appendChild(li);
+                    temRevisar = true;
+                });
+
+                // Recomendações de aprofundamento de estudo
+                dado.conceitosErrados.forEach(c => {
+                    let li = document.createElement('li');
+                    li.innerHTML = `Estudar as pegadinhas de provas da ANBIMA focadas em <strong>${c}</strong>.`;
+                    aprenderUl.appendChild(li);
+                    temAprender = true;
+                });
+            }
+
+            if(!temFortes) fortesUl.innerHTML = "<li>Nenhum módulo atingiu 100% nesta rodada. Continue tentando!</li>";
+            if(!temMelhorar) melhorarUl.innerHTML = "<li>Parabéns! Desempenho excelente em todos os tópicos sorteados.</li>";
+            if(!temRevisar) revisarUl.innerHTML = "<li>Nenhum erro crítico mapeado para revisão obrigatória.</li>";
+            if(!temAprender) aprenderUl.innerHTML = "<li>Você dominou os escopos atuais. Pronto para avançar para simulados completos.</li>";
+        }
+
+        function renderizarRevisao() {
+            const container = document.getElementById('review-container');
+            container.innerHTML = '';
+
+            questoesRodada.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                
+                let htmlOptions = '';
+                q.opcoes.forEach((opt, optIdx) => {
+                    let cssClass = '';
+                    if (optIdx === q.correta) cssClass = 'correct-answer';
+                    if (respostasUsuario[idx] === optIdx && optIdx !== q.correta) cssClass = 'wrong-answer';
+
+                    htmlOptions += `
+                        <div class="option ${cssClass}">
+                            <input type="radio" disabled ${respostasUsuario[idx] === optIdx ? 'checked' : ''}>
+                            ${opt}
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <span class="topic-badge">${q.topico}</span>
+                    <div class="question-text">Questão ${idx + 1} ${respostasUsuario[idx] === q.correta ? '✅' : '❌'}</div>
+                    <p style="white-space: pre-line;">${q.enunciado}</p>
+                    <div>${htmlOptions}</div>
+                    <div class="explanation-box">
+                        <strong>📌 Justificativa do Gabarito:</strong><br>${q.explicacao}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function recomecarSimulado() {
+            iniciarQuiz();
+        }
+
+        // Inicialização automática do App ao carregar
+        iniciarQuiz();
+    </script>
+</body>
+</html>
