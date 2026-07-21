@@ -240,140 +240,1267 @@
         // Banco de Dados robusto com questões retiradas dos seus anexos
         const BANCO_QUESTOES = [
             {
-                id: 1,
-                topico: "Módulo 1: Sistema Financeiro Nacional",
-                conceito: "Atribuições regulatórias do BACEN e Política Monetária",
-                enunciado: "O Banco Central do Brasil (BACEN) exerce um papel fundamental na condução da política monetária. Considerando suas atribuições, analise as afirmativas a seguir:\n\nI - O BACEN, por meio da política monetária, controla os gastos públicos, evitando a criação de demanda agregada com efeitos inflacionários.\nII - O BACEN regula, por meio de instrumentos próprios, a quantidade de moeda em circulação na economia.\nIII - O BACEN atua, de forma direta ou por meio de operações no mercado de câmbio, incluindo contratos de derivativos, para suavizar excessivas oscilações da taxa de câmbio.\n\nEstá correto o que se afirma APENAS em:",
-                opcoes: ["A) II e III.", "B) II.", "C) I e II.", "D) I."],
-                correta: 0,
-                explicacao: "O BACEN regula o meio circulante (II) e executa a política cambial intervindo para mitigar volatilidades extremas (III)[cite: 2]. O item I está incorreto porque o controle de gastos públicos é competência de política fiscal (Poder Executivo), não cambial ou monetária executada pelo BACEN[cite: 2]."
-            },
-            {
-                id: 2,
-                topico: "Módulo 1: Sistema Financeiro Nacional",
-                conceito: "Estrutura Administrativa e Regime Jurídico da CVM",
-                enunciado: "A Comissão de Valores Mobiliários (CVM) é uma entidade autárquica em regime especial, vinculada ao Ministério da Fazenda. Além de sua autonomia e independência administrativa, a CVM é caracterizada por ser administrada por:",
-                opcoes: [
-                    "A) Um Presidente e quatro Diretores, nomeados por concurso público de provas e títulos.",
-                    "B) Um Presidente e oito Diretores, nomeados pelo Ministro da Fazenda.",
-                    "C) Um Presidente e oito Diretores, aprovados previamente pelo Senado Federal.",
-                    "D) Um Presidente e quatro Diretores, nomeados pelo Presidente da República, após aprovação pelo Senado Federal."
-                ],
-                correta: 3,
-                explicacao: "Conforme o arcabouço normativo, o colegiado da CVM é composto por um Presidente e quatro Diretores, escolhidos pelo Presidente da República dentre pessoas com reputação ilibada e aprovados pelo Senado[cite: 2]."
-            },
-            {
-                id: 3,
-                topico: "Módulo 2: Autorregulação e Ética",
-                conceito: "Funções institucionais e códigos de autorregulação ANBIMA",
-                enunciado: "Dentro do Sistema Financeiro Nacional, qual das alternativas abaixo descreve uma competência legítima da ANBIMA?",
-                opcoes: [
-                    "A) Legislar sobre regras de enquadramento de Fundos de Investimento.",
-                    "B) Fiscalizar e aplicar sanções pecuniárias ao mercado de ações corporativo.",
-                    "C) Criar procedimentos e normas que permitam a autorregulação voluntária do mercado de capitais.",
-                    "D) Determinar e regular os padrões operacionais do mercado cambial interbancário."
-                ],
-                correta: 2,
-                explicacao: "A ANBIMA é uma associação de caráter privado responsável por estabelecer códigos de melhores práticas e autorregulação para as instituições aderentes no mercado de capitais, não possuindo poder legislativo estatal."
-            },
-            {
-                id: 4,
-                topico: "Módulo 3: Economia e Finanças",
-                conceito: "Instrumentos de Política Fiscal e Dinâmica de Demanda",
-                enunciado: "Preocupado com o superaquecimento da atividade econômica e pressões inflacionárias na demanda agregada, o governo adota medidas de controle. Para que uma ferramenta execute uma Política Fiscal Contracionista (o oposto de expansionista), o governo deveria adotar:",
-                opcoes: [
-                    "A) O aumento dos gastos públicos e redução de impostos de importação.",
-                    "B) A diminuição dos gastos públicos ou aumento da carga tributária.",
-                    "C) A redução da taxa de redesconto bancário junto às instituições comercias.",
-                    "D) Operações massivas de compra de títulos públicos via open market pelo BACEN."
-                ],
-                correta: 1,
-                explicacao: "A política fiscal lida diretamente com arrecadação (tributos) e gastos públicos[cite: 2]. Para desaquecer a economia (ação contracionista/repressiva), reduz-se o gasto estatal ou aumenta-se o imposto retirando liquidez[cite: 2]."
-            },
-            {
-                id: 5,
-                topico: "Módulo 3: Economia e Finanças",
-                conceito: "Sistemas de Amortização de Crédito Imobiliário (SAC vs Price)",
-                enunciado: "Nathan analisa duas linhas de crédito habitacional com taxas de juros prefixadas, prazos e montantes idênticos: uma estruturada no sistema SAC e outra no sistema Price. O profissional de investimentos deve esclarecer que:",
-                opcoes: [
-                    "A) O total de juros acumulados e pagos será idêntico em ambas as modalidades.",
-                    "B) A tabela Price possui prestações constantes e amortização do principal crescente, enquanto o SAC tem prestações decrescentes.",
-                    "C) O sistema SAC possui amortização constante mas a prestação inicial é inferior à da Price.",
-                    "D) Na tabela Price, o valor amortizado da dívida é fixado de maneira linear e constante em todo o cronograma."
-                ],
-                correta: 1,
-                explicacao: "No Sistema SAC, a amortização é constante e os juros caem linearmente, gerando parcelas decrescentes[cite: 2]. Na Price (Sistema Francês), as parcelas são fixas, fazendo a amortização inicial ser menor e crescer com o tempo[cite: 2]."
-            },
-            {
-                id: 6,
-                topico: "Módulo 4: Renda Fixa e Variável",
-                conceito: "Dinâmica da Poupança sob regras da Taxa Selic",
-                enunciado: "Henrique atende Gabriela, que possui dúvidas sobre a rentabilidade real e regras de remuneração da caderneta de poupança para pessoa física. O gerente deve informá-la corretamente que:",
-                opcoes: [
-                    "A) Quando a taxa Selic está igual ou abaixo de 8,5% ao ano, a poupança rende 70% da Selic + Taxa Referencial (TR).",
-                    "B) Independentemente do patamar macroeconômico da Selic, a poupança rende uma taxa fixa de 0,5% ao mês.",
-                    "C) A poupança possui rendimento com liquidez diária real capitalizado e creditado a cada 24 horas úteis.",
-                    "D) A Taxa Referencial (TR) adiciona uma rentabilidade real prefixada e imutável de 1% ao ano às aplicações."
-                ],
-                correta: 0,
-                explicacao: "Pela legislação, quando a meta da Selic for menor ou igual a 8,5% a.a., a remuneração passa a ser 70% da Selic mais a TR, perdendo atratividade frente a papéis indexados ao CDI integral."
-            },
-            {
-                id: 7,
-                topico: "Módulo 4: Renda Fixa e Variável",
-                conceito: "Características e Cobertura de Risco de Crédito Privado",
-                enunciado: "André demonstra interesse em diversificar seu capital através de Debêntures, Certificados de Recebíveis Imobiliários (CRI) e do Agronegócio (CRA). Mônica, especialista certificada, deve esclarecer sobre as garantias desses ativos que:",
-                opcoes: [
-                    "A) São garantidos pelo Fundo Garantidor de Créditos (FGC) até o teto de R$ 250 mil por CPF e instituição.",
-                    "B) O investidor assume integralmente o risco de crédito corporativo do emissor/lastro, pois carecem de proteção do FGC.",
-                    "C) Possuem liquidez soberana imediata assegurada pelo Tesouro Nacional através do mecanismo de recompra.",
-                    "D) Têm rentabilidade nominal obrigatoriamente garantida pelo Tesouro Direto em caso de recuperação judicial."
-                ],
-                correta: 1,
-                explicacao: "Debêntures, CRIs e CRAs são títulos corporativos securitizados ou de crédito direto. Eles NÃO possuem proteção do FGC, expondo o investidor ao risco puro de crédito da empresa ou do fluxo de recebíveis lastreado."
-            },
-            {
-                id: 8,
-                topico: "Módulo 5: Fundos de Investimento",
-                conceito: "Governança e Estruturas de Classes sob CVM 175",
-                enunciado: "Um fundo de investimento de classe única possui duas subclasses de cotas: uma desenhada para investidores qualificados (Taxa Adm: 1% a.a.) e outra para o público geral (Taxa Adm: 2% a.a.). Adicionalmente, o administrador distribui as operações mais rentáveis prioritariamente à subclasse dos qualificados, publicando em atas com total transparência (full disclosure). Essa conduta é:",
-                opcoes: [
-                    "A) Totalmente permitida devido à transparência total adotada.",
-                    "B) Permitida apenas no tocante às taxas administrativas diferenciadas (Prática I), mas proibida na diferenciação de alocação de ativos (Prática II).",
-                    "C) Permitida na alocação diferenciada desde que haja aprovação em assembleia geral de cotistas por maioria simples.",
-                    "D) Totalmente proibida pela CVM em ambos os aspectos operacionais operados pelo administrador fiduciário."
-                ],
-                correta: 1,
-                explicacao: "A diferenciação de taxas e públicos-alvo entre subclasses é legítima e operacionalizável pela CVM 175. Contudo, beneficiar uma subclasse em detrimento de outra na alocação de trades (operações) viola o dever de equidade e o princípio fiduciário, sendo vedado mesmo com disclosure."
-            },
-            {
-                id: 9,
-                topico: "Módulo 6: Previdência Complementar",
-                conceito: "Tributação e Regras de Portabilidade PGBL vs VGBL",
-                enunciado: "Um cliente possui uma reserva financeira consolidada alocada em um plano do tipo PGBL e solicita ao consultor a transferência total desses recursos diretamente para um plano estruturado como VGBL. Diante da regra regulatória:",
-                opcoes: [
-                    "A) A operação pode ser efetuada via portabilidade externa mantendo diferimento do Imposto de Renda.",
-                    "B) O cliente terá obrigatoriamente que resgatar os recursos do PGBL (sofrendo incidência de IR sobre o total) para posterior aporte no VGBL.",
-                    "C) A transferência direta é permitida via portabilidade interna e goza de isenção tributária integral.",
-                    "D) A portabilidade é aceita apenas se ambos os planos compartilharem a mesma tábua atuarial de sobrevivência."
-                ],
-                correta: 1,
-                explicacao: "Não existe portabilidade entre modalidades estruturais distintas (PGBL para VGBL ou vice-versa). Para migrar, o investidor é obrigado a liquidar o plano original, gerando o fato gerador do Imposto de Renda sobre a base correspondente antes de reinvestir."
-            },
-            {
-                id: 10,
-                topico: "Módulo 7: Compliance e Prevenção à Lavagem de Dinheiro",
-                conceito: "Tipologias e Práticas de Crime de Manipulação de Mercado",
-                enunciado: "Práticas operacionais conhecidas como Spoofing e Layering constituem infrações graves contra o mercado de capitais. A distinção conceitual entre as duas tipologias reside no fato de que:",
-                opcoes: [
-                    "A) O Spoofing configura quebra de sigilo por Insider Trading e o Layering é o Front Running de corretoras.",
-                    "B) O Spoofing envolve a inserção de ordens falsas de tamanho atípico para simular liquidez e forçar preços, enquanto o Layering consiste na criação de múltiplas camadas de ordens falsas em níveis sucessivos de preço.",
-                    "C) O Layering é caracterizado como lavagem de capitais em fase de integração e o Spoofing como ocultação física.",
-                    "D) Ambas as práticas são idênticas, mudando o termo técnico apenas se operadas em derivativos ou mercado à vista."
-                ],
-                correta: 1,
-                explicacao: "Ambas são táticas de manipulação por ordens que o operador não pretende executar. O Spoofing cria uma grande pressão visual unilateral, e o Layering constrói uma escada ou camadas de ofertas falsas para distorcer o book de ofertas de forma artificial."
-            }
+              id: 1,
+        topico: "Produtos de Crédito",
+        conceito: "Crédito Direto ao Consumidor (CDC)",
+        enunciado: "Manuela, proprietária de uma empresa de pequeno porte que vende doces e salgados, precisa de um veículo novo para realizar as entregas. Ela busca uma linha de crédito que permita a aquisição do veículo com pagamento parcelado em prestações fixas, sem que o crédito esteja vinculado ao seu salário ou envolva o arrendamento do bem. O produto que melhor atende à sua necessidade seria:",
+        opcoes: [
+            "A) O crédito Direto ao Consumidor (CDC), pois trata-se de uma operação de crédito destinada à aquisição de bens e serviços, com pagamento em prestações fixas e juros previamente estabelecidos.",
+            "B) O Leasing, pois é uma operação de crédito estruturada com opção de compra ao final do prazo.",
+            "C) O empréstimo consignado, pois é uma operação de crédito em que o valor das parcelas é descontado mensalmente diretamente do salário do contratante.",
+            "D) A carta de crédito, pois representa uma garantia bancária em operações de crédito."
+        ],
+        correta: 0,
+        explicacao: "A definição resume de forma clara as características do CDC, incluindo a concessão de crédito e o pagamento parcelado com juros, atendendo à solicitação de Manuela[cite: 1]. O Leasing é arrendamento, o consignado exige desconto em folha e a carta de crédito refere-se a comércio exterior[cite: 1]."
+    },
+    {
+        id: 2,
+        topico: "Economia e Finanças",
+        conceito: "Regime de Câmbio Flutuante",
+        enunciado: "Ana, cliente de um banco, tem interesse em aplicações no exterior, mas demonstrou preocupação com os riscos associados às oscilações cambiais. Ana reconhece que o Brasil adota um regime de câmbio flutuante. A melhor explicação a ser dada à Ana sobre os riscos associados aos investimentos em moeda estrangeira é que os riscos são:",
+        opcoes: [
+            "A) Potencialmente significativos, pois no regime cambial flutuante, as taxas de câmbio podem variar de acordo com as condições de mercado, impactando os investimentos.",
+            "B) Baixos, pois o regime cambial flutuante é projetado para prevenir grandes oscilações na taxa de câmbio.",
+            "C) Eliminados pelo Banco Central, que fixa a taxa de câmbio por meio de intervenções frequentes para garantir estabilidade.",
+            "D) Reduzidos, já que o Banco Central brasileiro mantém a taxa de câmbio em níveis estáveis para proteger investidores."
+        ],
+        correta: 0,
+        explicacao: "O regime flutuante reflete as forças de oferta e demanda, o que pode introduzir riscos cambiais significativos para investidores em moeda estrangeira[cite: 1]. O Banco Central não fixa a taxa, apenas intervém pontualmente para suavizar oscilações[cite: 1]."
+    },
+    {
+        id: 3,
+        topico: "Renda Fixa",
+        conceito: "Caderneta de Poupança",
+        enunciado: "Marcos, um investidor conservador, consultou seu gerente para obter uma explicação detalhada sobre as principais características da poupança para pessoas físicas. A melhor explicação seria:",
+        opcoes: [
+            "A) Oferece liquidez imediata e isenção de impostos. É garantida pelo FGC até R$ 250 mil por CPF e instituição. Sua rentabilidade baseia-se na Selic ou em 0,5% ao mês mais TR. Não é ideal para crescimento patrimonial a longo prazo.",
+            "B) Possui liquidez limitada, pois os rendimentos são pagos apenas no aniversário mensal. Sua rentabilidade é composta por 0,5% ao mês mais a TR.",
+            "C) Possui alta rentabilidade comparada a outros investimentos de renda fixa e isenção de IR. Seu risco está na perda do valor investido, pois não possui garantias.",
+            "D) Tem a vantagem de ser tributada apenas no resgate antecipado e oferece liquidez limitada."
+        ],
+        correta: 0,
+        explicacao: "A poupança oferece liquidez imediata, isenção de impostos e garantia do FGC[cite: 1]. Contudo, seu retorno é limitado, dependendo da Selic, não sendo recomendada para crescimento patrimonial a longo prazo[cite: 1]."
+    },
+    {
+        id: 4,
+        topico: "Títulos Públicos",
+        conceito: "Proteção contra Inflação (NTN-B)",
+        enunciado: "Lucas é um investidor conservador que busca preservar seu capital e está preocupado com a inflação. Ele quer garantir que seu investimento em títulos públicos mantenha seu poder de compra ao longo do tempo. Ele deve investir em:",
+        opcoes: [
+            "A) NTN-B",
+            "B) LTN",
+            "C) CDB",
+            "D) LCA"
+        ],
+        correta: 0,
+        explicacao: "A NTN-B é indexada ao IPCA, oferecendo proteção contra a inflação[cite: 1]. A LTN é prefixada (não ajusta à inflação), e CDB e LCA não são títulos públicos[cite: 1]."
+    },
+    {
+        id: 5,
+        topico: "Crédito Privado",
+        conceito: "Debêntures Conversíveis",
+        enunciado: "José é um investidor de perfil moderado que explora o mercado de crédito privado. Para fugir da renda variável, José deve evitar um tipo específico de debênture, que possui componente de renda variável. Ele deve evitar as:",
+        opcoes: [
+            "A) Debêntures conversíveis",
+            "B) Debêntures com garantia flutuante",
+            "C) Debêntures com remuneração atrelada à taxa DI (CDI)",
+            "D) Debêntures incentivadas"
+        ],
+        correta: 0,
+        explicacao: "As debêntures conversíveis possuem um componente de renda variável devido à opção embutida de conversão do título em ações da companhia emissora[cite: 1]."
+    },
+
+    // --- QUESTÕES DO ARQUIVO: SIMULADO+CPA+QR-Code+Atualizado.pdf ---
+    {
+        id: 6,
+        topico: "Sistema Financeiro Nacional",
+        conceito: "Atribuições do Banco Central",
+        enunciado: "O Banco Central do Brasil (BACEN) exerce um papel fundamental na condução da política monetária. Considerando suas atribuições, analise:\nI - Controla os gastos públicos, evitando a criação de demanda agregada com efeitos inflacionários.\nII - Regula a quantidade de moeda em circulação na economia.\nIII - Atua no mercado de câmbio para suavizar excessivas oscilações da taxa de câmbio.\nEstá correto o que se afirma APENAS em:",
+        opcoes: [
+            "A) II e III.",
+            "B) II.",
+            "C) I e II.",
+            "D) I."
+        ],
+        correta: 0,
+        explicacao: "O BACEN regula a quantidade de moeda (II) e atua no mercado de câmbio para conter oscilações (III)[cite: 2]. O controle de gastos públicos (I) cabe à Política Fiscal, executada pelo Governo, não pelo BACEN[cite: 2]."
+    },
+    {
+        id: 7,
+        topico: "Sistema Financeiro Nacional",
+        conceito: "Comissão de Valores Mobiliários (CVM)",
+        enunciado: "A CVM é uma entidade autárquica em regime especial, vinculada ao Ministério da Fazenda. Além disso, a CVM é administrada por:",
+        opcoes: [
+            "A) Um Presidente e quatro Diretores, nomeados pelo Presidente da República, depois de aprovados pelo Senado Federal.",
+            "B) Um Presidente e oito Diretores, nomeados pelo Presidente da República, depois de aprovados pelo Senado Federal.",
+            "C) Um Presidente e oito Diretores, nomeados através de concurso público.",
+            "D) Um Presidente e quatro Diretores, nomeados pelo Presidente da República, depois de aprovados pela Câmara dos Deputados."
+        ],
+        correta: 0,
+        explicacao: "A CVM é administrada por um Presidente e quatro Diretores, nomeados pelo Presidente da República após aprovação pelo Senado Federal[cite: 2]. O mandato é fixo para garantir independência[cite: 2]."
+    },
+    {
+        id: 8,
+        topico: "Economia e Finanças",
+        conceito: "Política Fiscal Expansionista",
+        enunciado: "Preocupado com o aquecimento da atividade econômica, o governo adota uma Política Fiscal expansionista. Para tanto, uma ferramenta a ser utilizada seria:",
+        opcoes: [
+            "A) diminuição dos gastos públicos.",
+            "B) diminuição das cargas tributárias.",
+            "C) aumentar a taxa de redesconto.",
+            "D) compra de título públicos pelo Bacen."
+        ],
+        correta: 1,
+        explicacao: "A Política Fiscal refere-se à arrecadação e gastos do governo[cite: 2]. Para ser expansionista, o governo deve estimular a economia, o que é feito diminuindo a carga tributária ou aumentando os gastos públicos[cite: 2]."
+    },
+    {
+        id: 9,
+        topico: "Sistema Financeiro Nacional",
+        conceito: "Sistema Especial de Liquidação e de Custódia (SELIC)",
+        enunciado: "O SELIC, do BACEN, é o depositário central dos títulos públicos federais, processando a emissão, o resgate, o pagamento dos juros e a custódia. O objetivo desse sistema é:",
+        opcoes: [
+            "A) Mitigar o risco de volatilidade dos títulos públicos.",
+            "B) Mitigar o risco de inadimplência dos títulos públicos.",
+            "C) Validar a veracidade dos títulos privados e das condições de compra.",
+            "D) Validar a veracidade dos títulos públicos e das condições de compra."
+        ],
+        correta: 3,
+        explicacao: "O SELIC visa garantir a segurança, validando a veracidade e processando a liquidação eletrônica da compra/venda e custódia estrita de títulos públicos federais[cite: 2]."
+    },
+    {
+        id: 10,
+        topico: "Planejamento e Crédito",
+        conceito: "Sistemas de Amortização (SAC vs Price)",
+        enunciado: "Nathan analisa um financiamento imobiliário pelas tabelas SAC e Price. Sobre essas tabelas, é correto afirmar:\nI - A tabela SAC possui uma prestação inicial maior e os valores pagos de juros serão decrescentes.\nII - A tabela Price possui a prestação constante e a amortização do principal será crescente.\nIII - O Total de juros pagos será o mesmo, independente do sistema escolhido.",
+        opcoes: [
+            "A) I, apenas.",
+            "B) I e II, apenas.",
+            "C) II e III, apenas.",
+            "D) I, II e III."
+        ],
+        correta: 1,
+        explicacao: "A tabela SAC amortiza o saldo de forma constante (gerando parcelas iniciais maiores que decaem) e a Price mantém prestações fixas (amortizando menos no começo e mais no final)[cite: 2]. O total de juros pagos NÃO é o mesmo; na Price, paga-se mais juros acumulados no final[cite: 2]."
+    },
+{
+        id: 11,
+        topico: "Renda Fixa e Derivativos",
+        conceito: "CDB vs COE (Certificado de Operações Estruturadas)",
+        enunciado: "Paulo tem R$ 1.000,00 e prazo de 360 dias. O gerente ofereceu um CDB com taxa de 12% a.a. e um COE atrelado ao Ibovespa. No COE, se o IBOV ficar acima de 125.000 e até 145.000, o retorno é o capital * [1 + (IBOV - 125.000)/125.000]. Com base nas características, a análise correta é:",
+        opcoes: [
+            "A) Para que o COE apresente remuneração bruta superior ao CDB, o índice deve atingir ou superar 140.000 pontos.",
+            "B) Caso o índice atinja 160.000, a rentabilidade líquida de impostos do COE será de 17,425%.",
+            "C) A tributação do imposto de renda incidente sobre o retorno do COE é inferior àquele incidente sobre o CDB.",
+            "D) O COE, assim como o CDB, são produtos cobertos pelo Fundo Garantidor de Créditos (FGC)."
+        ],
+        correta: 0,
+        explicacao: "Para que o COE renda mais que os 12% do CDB, o índice precisa chegar a 140.000 pontos (fórmula de proporção indicada no regulamento)[cite: 1]. Importante: COE não tem cobertura do FGC e é tributado pela mesma tabela regressiva de Renda Fixa do CDB[cite: 1]."
+    },
+    {
+        id: 12,
+        topico: "Gestão de Risco",
+        conceito: "Risco Caudal (Tail Risk) em Criptoativos",
+        enunciado: "Uma Entidade de Previdência avalia alocar parte do portfólio em ETFs de moedas digitais (Bitcoin e Ethereum). A diretoria está preocupada com os riscos. Um impacto potencial sobre a gestão de riscos caso ela decida investir seria:",
+        opcoes: [
+            "A) A inclusão de ETFs de moedas digitais aumentará o risco caudal (tail risk) do portfólio, devido à presença de caudas gordas (fat tails).",
+            "B) ETFs de moedas digitais reduzirão o desvio-padrão dos retornos por meio da diversificação, desde que tenham correlação positiva.",
+            "C) A Entidade pode evitar oscilações grandes porque as criptomoedas são negociadas 24 horas por dia.",
+            "D) Por ter correlação média igual a zero com ativos tradicionais, a inclusão não impactará o risco do portfólio."
+        ],
+        correta: 0,
+        explicacao: "Ativos digitais apresentam distribuições estatísticas com 'caudas gordas', o que amplia a exposição a eventos extremos e aumenta o chamado risco caudal (tail risk) no portfólio[cite: 1]."
+    },
+    {
+        id: 13,
+        topico: "Fundos de Investimento",
+        conceito: "Administração Fiduciária em FIIs",
+        enunciado: "Fernanda explicou as características dos Fundos Imobiliários (FII) e destacou o papel da administração fiduciária. A melhor explicação sobre essa função é:",
+        opcoes: [
+            "A) O administrador fiduciário é responsável pela supervisão do cumprimento das normas e regulamentos aplicáveis ao fundo, além de zelar pelos interesses dos cotistas, mesmo que não participe diretamente da gestão dos imóveis.",
+            "B) É responsável por garantir o cumprimento regulatório e também atuar ativamente na valorização dos imóveis comerciais.",
+            "C) Tem como função principal garantir a valorização dos imóveis e a gestão eficiente dos ativos.",
+            "D) Sua função é basicamente administrativa, como a manutenção física dos imóveis e a gestão de inquilinos e contratos."
+        ],
+        correta: 0,
+        explicacao: "A administração fiduciária assegura que o fundo opere conforme as regras regulatórias, protegendo os cotistas. Ela NÃO atua na valorização, compra, venda ou gestão física dos imóveis; esse papel cabe ao Gestor[cite: 1]."
+    },
+    {
+        id: 14,
+        topico: "Planejamento Financeiro e Open Finance",
+        conceito: "Consolidação de Risco Global da Carteira",
+        enunciado: "Dolores possui investimentos em ações e fundos voláteis no Banco A e títulos pós-fixados conservadores no Banco B. A gerente do Banco B sugere a adesão ao Open Finance. O impacto dessa adesão para as recomendações de investimento seria:",
+        opcoes: [
+            "A) Ter uma visão consolidada de todos os investimentos, facilitando uma avaliação precisa do perfil de risco global e possibilitando recomendações adequadas.",
+            "B) A análise de risco continuará limitada, pois o Open Finance não compartilha dados de volatilidade e prazo.",
+            "C) Ver apenas os investimentos em renda fixa, o que ainda resultaria em uma visão parcial da carteira.",
+            "D) Acesso automático a todos os dados, sem necessidade de consentimento, agilizando o processo."
+        ],
+        correta: 0,
+        explicacao: "O Open Finance, mediante consentimento do cliente, permite visualizar e integrar os dados de ambas as instituições, melhorando consideravelmente a recomendação (suitability) e a análise de risco da carteira total[cite: 1]."
+    },
+    {
+        id: 15,
+        topico: "Planejamento Financeiro",
+        conceito: "Risco Cambial vs Metas Financeiras",
+        enunciado: "Maria (23 anos) deseja fazer intercâmbio na Europa em 2 anos e precisa acumular 6.000 euros. Ela decide aplicar R$ 1.200 por mês na poupança, buscando segurança e liquidez. A principal limitação dessa estratégia que ela precisa compreender é:",
+        opcoes: [
+            "A) A variação cambial pode aumentar o valor necessário em reais, e a rentabilidade da poupança não acompanha essa variação.",
+            "B) A rentabilidade da poupança pode não acompanhar a inflação brasileira, reduzindo o poder de compra.",
+            "C) A poupança oferece baixa liquidez para resgates antecipados.",
+            "D) A poupança é sujeita a impostos que reduzem o montante final disponível."
+        ],
+        correta: 0,
+        explicacao: "Como a meta está cotada em Euros e o investimento em Reais, a principal ameaça é o risco cambial[cite: 1]. Uma desvalorização do Real exigiria muito mais dinheiro acumulado para atingir os mesmos 6.000 euros[cite: 1]."
+    },
+    {
+        id: 16,
+        topico: "Atendimento e Ética",
+        conceito: "Instâncias de Reclamação em Previdência",
+        enunciado: "Um cliente está insatisfeito com a perda de dinheiro em seu fundo de previdência e não concorda com as ações alocadas na composição do fundo. Ao questionar onde deve registrar uma reclamação oficial imediata no banco, a orientação correta é:",
+        opcoes: [
+            "A) 'Para queixas internas, temos o SAC e a Ouvidoria. Gostaria de entender melhor sua dúvida técnica antes de seguirmos com o registro?'",
+            "B) 'Isso é volatilidade de mercado, reclamações podem ser feitas no SAC mas a gestora não é responsável.'",
+            "C) 'Pode falar comigo mesmo, vou anotar sua insatisfação para a área de investimentos.'",
+            "D) 'Reclamações sobre fundos devem ser feitas diretamente na CVM, o banco não interfere.'"
+        ],
+        correta: 0,
+        explicacao: "O canal primário de relacionamento e queixa interna oficial de uma instituição é o SAC. Caso não seja resolvido, aciona-se a Ouvidoria[cite: 2]. A CVM e SUSEP atuam apenas em âmbitos regulatórios externos."
+    },
+    {
+        id: 17,
+        topico: "Previdência Complementar",
+        conceito: "Portabilidade e Isenção de IR",
+        enunciado: "Um cliente está insatisfeito com as perdas em um fundo de Previdência de perfil arrojado e deseja sair, mas não quer pagar os 15% de Imposto de Renda do resgate neste momento. A saída legal e correta que o gerente deve propor é:",
+        opcoes: [
+            "A) A Portabilidade Interna. Podemos mover o saldo para um fundo 100% Renda Fixa Conservador. Não há cobrança de IR nem de taxas nessa transação.",
+            "B) O resgate para reinvestimento em um CDB, o imposto é inevitável mas o risco diminui.",
+            "C) A única saída sem imposto é esperar completar 10 anos de aplicação na tabela regressiva.",
+            "D) A portabilidade é uma opção, mas só tem isenção se for para outro banco concorrente."
+        ],
+        correta: 0,
+        explicacao: "A portabilidade (seja interna no mesmo banco ou externa para outra instituição) não configura resgate do dinheiro, portanto, NÃO existe fato gerador para cobrança de Imposto de Renda[cite: 2]."
+    },
+    {
+        id: 18,
+        topico: "Previdência Complementar",
+        conceito: "Órgãos Fiscalizadores e Composição da Carteira",
+        enunciado: "Um cliente adquire um plano de previdência PGBL em uma instituição financeira. Caso ele queira maiores informações oficiais, denúncias ou regras exclusivas sobre a composição da carteira (os ativos financeiros do fundo), ele pode verificar com a:",
+        opcoes: [
+            "A) Bacen",
+            "B) Susep",
+            "C) Previc",
+            "D) CVM"
+        ],
+        correta: 3,
+        explicacao: "A SUSEP regula e fiscaliza a comercialização do plano de previdência (PGBL/VGBL). Porém, o fundo de investimento (FIE) que abriga os ativos daquele plano segue as regras de mercado de capitais estipuladas pela CVM[cite: 2]."
+    },
+    {
+        id: 19,
+        topico: "Previdência Complementar",
+        conceito: "Previdência Aberta (SUSEP) vs Fechada (PREVIC)",
+        enunciado: "Seu cliente deseja abrir uma reclamação em relação a dois fundos de previdência: um VGBL (previdência aberta) e um plano fechado dos funcionários da empresa na qual ele trabalha. Você orienta que as reclamações sejam feitas, respectivamente, na:",
+        opcoes: [
+            "A) Previc em ambos os casos.",
+            "B) Previc e Susep.",
+            "C) Susep e Previc.",
+            "D) Susep em ambos os casos."
+        ],
+        correta: 2,
+        explicacao: "Planos de Entidades Abertas de Previdência Complementar (PGBL e VGBL) são fiscalizados pela SUSEP. Já os Fundos de Pensão, geridos por Entidades Fechadas (exclusivas para funcionários de empresas), são regulados pela PREVIC[cite: 2]."
+    },
+    {
+        id: 20,
+        topico: "Gestão de Risco",
+        conceito: "Agências de Rating e Risco de Crédito",
+        enunciado: "Considere as afirmativas sobre risco de crédito:\nI - As agências de rating classificam empresas por meio de notas de risco.\nII - Mede a probabilidade do emissor não honrar seus compromissos com capital de terceiros.\nIII - O aumento do rating (melhora da nota) significa aumento do risco, afetando negativamente o preço no mercado secundário.\nEstá correto o que se afirma em:",
+        opcoes: [
+            "A) I, apenas.",
+            "B) I e II, apenas.",
+            "C) II e III, apenas.",
+            "D) I, II e III."
+        ],
+        correta: 1,
+        explicacao: "O item III está invertido: se há um AUMENTO/MELHORA no rating de uma empresa (por exemplo, de B para AAA), o risco de crédito CAI e o valor do título tende a ser valorizado no mercado[cite: 2]. Portanto, apenas I e II estão corretas[cite: 2]."
+    },
+{
+        id: 21,
+        topico: "Renda Fixa e Derivativos",
+        conceito: "Garantia de Letra Hipotecária (LH)",
+        enunciado: "Rafael questiona o que aconteceria caso os devedores dos créditos imobiliários que lastreiam a Letra Hipotecária (LH) não honrassem seus pagamentos. A explicação correta é:",
+        opcoes: [
+            "A) O banco emissor é responsável pelo pagamento do título, independentemente do desempenho dos créditos que o lastreiam.",
+            "B) O Fundo Garantidor de Créditos (FGC) cobre o saldo investido até R$ 250 mil.",
+            "C) Os créditos são separados do patrimônio do emissor, eliminando o risco da instituição.",
+            "D) O investidor pode resgatar a qualquer momento sem perda de rentabilidade."
+        ],
+        correta: 0,
+        explicacao: "A Letra Hipotecária (LH) é lastreada em créditos imobiliários. Contudo, a segurança para o investidor advém da responsabilidade solidária do banco emissor em honrar o pagamento, mesmo que os devedores originais fiquem inadimplentes[cite: 1]. A LH tradicionalmente não conta com proteção do FGC[cite: 1]."
+    },
+    {
+        id: 22,
+        topico: "Renda Variável",
+        conceito: "Tributação de Juros sobre Capital Próprio (JCP)",
+        enunciado: "Rafael percebeu que o montante líquido recebido de Juros sobre Capital Próprio (JCP) em sua conta foi inferior ao valor anunciado pela empresa. A razão para essa diferença é que:",
+        opcoes: [
+            "A) Os JCPs são tributados na fonte a uma alíquota de 15% de Imposto de Renda, reduzindo o valor líquido recebido.",
+            "B) As empresas pagam os JCPs em datas distintas dos dividendos.",
+            "C) Os JCPs são ajustados descontando a variação da taxa Selic no período.",
+            "D) O investidor deve solicitar a restituição na declaração anual do IR."
+        ],
+        correta: 0,
+        explicacao: "Diferentemente dos Dividendos (que são isentos para Pessoas Físicas), os Juros sobre Capital Próprio (JCP) sofrem tributação definitiva de 15% retida na fonte no momento do pagamento[cite: 1]."
+    },
+    {
+        id: 23,
+        topico: "Renda Variável",
+        conceito: "Desdobramento de Ações (Split)",
+        enunciado: "Um cliente possui 1.000 ações de uma empresa que anunciou um desdobramento na proporção de 1 para 5. O efeito desse evento sobre o investimento do cliente será:",
+        opcoes: [
+            "A) O número de ações aumentará proporcionalmente (para 5.000), enquanto o preço unitário se ajustará para baixo, mantendo o valor total investido inalterado.",
+            "B) O número de ações permanecerá o mesmo, mas o preço médio de compra será ajustado para cima.",
+            "C) O investidor terá um prejuízo imediato, pois o preço das ações será reduzido.",
+            "D) O grupamento é o contrário, mas em ambos os casos o valor total investido sempre aumenta."
+        ],
+        correta: 0,
+        explicacao: "No desdobramento (split) de 1 para 5, o investidor passa a ter 5 vezes mais ações, mas o preço unitário se reduz na mesma proporção[cite: 1]. O valor financeiro total da posição permanece exatamente igual[cite: 1]."
+    },
+    {
+        id: 24,
+        topico: "Renda Fixa e Derivativos",
+        conceito: "Cálculo de Rentabilidade da Poupança",
+        enunciado: "Luís aplicou R$ 1.000.000 na poupança. No aniversário (1 mês depois), a TR foi de 0,1715% a.m. e a Selic anual apurada no período era de 11,25%. O saldo final da conta será de:",
+        opcoes: [
+            "A) R$ 1.006.723,58",
+            "B) R$ 1.006.715,00",
+            "C) R$ 1.006.545,45",
+            "D) R$ 1.009.350,65"
+        ],
+        correta: 0,
+        explicacao: "Como a Selic no período (11,25%) é superior a 8,5% a.a., a poupança passa a render 0,5% a.m. + TR. O cálculo é feito por juros compostos: 1.000.000 * (1 + 0,005) * (1 + 0,001715) = R$ 1.006.723,58[cite: 1]."
+    },
+    {
+        id: 25,
+        topico: "Renda Fixa e Derivativos",
+        conceito: "Lastro de Letra de Crédito Imobiliário (LCI)",
+        enunciado: "Para garantir a segurança dos investidores, os recursos captados pela emissão de uma Letra de Crédito Imobiliário (LCI) devem ser obrigatoriamente:",
+        opcoes: [
+            "A) Vinculados a ativos específicos (créditos imobiliários), garantindo que a instituição tenha lastro suficiente para honrar os compromissos.",
+            "B) Utilizados livremente conforme a estratégia de gestão de liquidez do emissor.",
+            "C) Protegidos integralmente por um fundo garantidor, sem qualquer limite de valor investido.",
+            "D) Mantidos bloqueados exclusivamente no caixa da instituição emissora até o vencimento."
+        ],
+        correta: 0,
+        explicacao: "As LCIs exigem que os recursos captados pela emissão sejam estritamente lastreados (vinculados) a operações e financiamentos do setor imobiliário, garantindo a destinação correta dos valores pelo banco[cite: 1]."
+    },
+    {
+        id: 26,
+        topico: "Renda Fixa e Derivativos",
+        conceito: "Base de cálculo dos Depósitos de Poupança",
+        enunciado: "A remuneração dos depósitos de caderneta de poupança (para pessoas físicas) é calculada incidindo sobre:",
+        opcoes: [
+            "A) O menor saldo apresentado em cada período de rendimento (mês).",
+            "B) O maior saldo de cada período de rendimento.",
+            "C) A média diária dos saldos ao longo de cada período de rendimento.",
+            "D) A soma total de todas as aplicações e depósitos do período."
+        ],
+        correta: 0,
+        explicacao: "Pela regra oficial do Banco Central, a rentabilidade da poupança é sempre calculada sobre o menor saldo que a conta apresentou durante o ciclo (da data do depósito até a data de aniversário no mês seguinte)[cite: 2]."
+    },
+    {
+        id: 27,
+        topico: "Renda Fixa e Derivativos",
+        conceito: "Tributação do CDB (IOF e IR)",
+        enunciado: "O CDB é um título privado de captação. Os impostos que incidem sobre as rentabilidades do CDB são o IOF (Imposto sobre Operações Financeiras) e o IR (Imposto de Renda), com as seguintes características operacionais:",
+        opcoes: [
+            "A) IOF isento a partir de 15 dias; IR constante de 15%.",
+            "B) IOF decrescente, isento após 60 dias; IR isento após 720 dias.",
+            "C) IOF decrescente, sendo isento para a aplicação com duração superior a 29 dias (30º dia); e IR decrescente com alíquota mínima de 15% para prazos acima de 720 dias.",
+            "D) IOF fixo em 3%; IR decrescente com mínimo de 15% após 360 dias."
+        ],
+        correta: 2,
+        explicacao: "Na renda fixa (como o CDB), o IOF incide apenas nos primeiros 29 dias, de forma regressiva (zerando a partir do 30º dia). O Imposto de Renda segue a tabela regressiva padrão: de 22,5% (até 180 dias) caindo até 15% (acima de 720 dias)[cite: 2]."
+    },
+    {
+        id: 28,
+        topico: "Renda Variável",
+        conceito: "Ações Ordinárias (ON) e Preferenciais (PN)",
+        enunciado: "Considere as afirmativas sobre ações corporativas:\nI - Em caso de falência, as ações ordinárias (ON) possuem prioridade no acervo em relação às preferenciais (PN).\nII - As ações ordinárias devem compor no mínimo 50% do capital da empresa.\nIII - Caso não distribua dividendos por 3 trimestres, as ações PNs adquirem direito a voto.\nEstá correto o que se afirma em:",
+        opcoes: [
+            "A) I, apenas.",
+            "B) II, apenas.",
+            "C) I e III, apenas.",
+            "D) I, II e III."
+        ],
+        correta: 1,
+        explicacao: "I está incorreta porque são as Preferenciais (PN) que têm prioridade no reembolso em caso de liquidação/falência[cite: 2]. III está incorreta pois o direito a voto da PN é ativado após 3 EXERCÍCIOS consecutivos sem dividendos, e não trimestres. Apenas a afirmativa II é verdadeira, pois a Lei das S.A. exige que pelo menos 50% das ações emitidas sejam ON[cite: 2]."
+    },
+    {
+        id: 29,
+        topico: "Renda Variável",
+        conceito: "Novo Mercado da B3",
+        enunciado: "Em 2000, foi lançado um segmento de listagem na B3 que exige os mais rigorosos padrões de transparência e governança corporativa. Esse segmento é composto EXCLUSIVAMENTE por ações ordinárias (com direito a voto) e exige tag along de 100%. Esse segmento é chamado de:",
+        opcoes: [
+            "A) Novo Mercado",
+            "B) Nível 1",
+            "C) Nível 2",
+            "D) Bovespa Mais"
+        ],
+        correta: 0,
+        explicacao: "O 'Novo Mercado' é o padrão máximo de governança da B3. Suas duas características mais famosas para provas são: as empresas só podem emitir ações Ordinárias (ON) e devem oferecer 100% de Tag Along aos acionistas minoritários[cite: 2]."
+    },
+    {
+        id: 30,
+        topico: "Renda Variável",
+        conceito: "Tributação sobre Day Trade",
+        enunciado: "A cobrança do Imposto de Renda sobre o lucro auferido em operações de Day Trade (compra e venda no mesmo dia), no mercado de ações, ocorre com a alíquota de:",
+        opcoes: [
+            "A) 20%, sendo que 1% já é descontado na fonte (dedo-duro).",
+            "B) 15%, sendo que 1% já é descontado na fonte.",
+            "C) 20%, sem nenhum desconto na fonte.",
+            "D) 15%, sendo recolhido exclusivamente via DARF sem retenção."
+        ],
+        correta: 0,
+        explicacao: "Para operações de Day Trade, a alíquota de IR é de 20% sobre o ganho líquido[cite: 2]. Para controle da Receita Federal, a corretora retém 1% na fonte (chamado de dedo-duro), e o investidor paga os 19% restantes via DARF[cite: 2]."
+    },
+{
+        id: 31,
+        topico: "Renda Variável",
+        conceito: "Units (Certificados de Depósito de Ações)",
+        enunciado: "Considere as seguintes afirmativas sobre as chamadas 'Units':\nI - São também chamadas de Certificado de Depósito de Ações.\nII - São compostas obrigatoriamente por uma (1) ação ordinária e uma (1) ação preferencial do mesmo emissor.\nIII - Geralmente apresentam liquidez superior comparativamente às próprias ações que as compõem isoladamente.\nEstá correto o que se afirmar em:",
+        opcoes: [
+            "A) I e II, apenas.",
+            "B) I e III, apenas.",
+            "C) II e III, apenas.",
+            "D) I, II e III."
+        ],
+        correta: 1,
+        explicacao: "As Units (I) são pacotes de ações que conferem maior liquidez ao ativo (III)[cite: 2]. A afirmativa II está errada porque não há regra de ser '1 ON e 1 PN'; cada empresa define a proporção do pacote, podendo ser, por exemplo, 1 ON e 2 PNs, 1 ON e 4 PNs, etc[cite: 2]."
+    },
+    {
+        id: 32,
+        topico: "Mercado Financeiro",
+        conceito: "Mercado Primário vs Secundário",
+        enunciado: "Sobre a dinâmica de negociação de valores mobiliários, podemos afirmar em relação ao Mercado Primário e ao Mercado Secundário que:",
+        opcoes: [
+            "A) A liquidez dos títulos e valores mobiliários ocorre predominantemente no Mercado Primário.",
+            "B) A liquidez dos títulos e valores mobiliários ocorre no Mercado Secundário.",
+            "C) Os novos títulos para captação da empresa são emitidos no Mercado Secundário.",
+            "D) O IPO (Oferta Pública Inicial) das novas ações ocorre no Mercado Secundário."
+        ],
+        correta: 1,
+        explicacao: "O Mercado Primário é onde a empresa emite os títulos e capta recursos novos (como no IPO)[cite: 2]. Já a 'liquidez', que é a troca dos ativos entre investidores, ocorre exclusivamente no Mercado Secundário[cite: 2]."
+    },
+    {
+        id: 33,
+        topico: "Produtos Financeiros",
+        conceito: "Taxa de Administração de Consórcios",
+        enunciado: "Em um grupo de consórcio, a remuneração principal da empresa que faz a gestão, conhecida como Taxa de Administração, é cobrada incidindo sobre qual valor-base?",
+        opcoes: [
+            "A) Do valor total da carta de crédito.",
+            "B) Do valor da carta de crédito somado ao valor do seguro prestamista.",
+            "C) Da carta de crédito somada ao Fundo de Reserva.",
+            "D) Do valor pago pelo seguro de vida e do Fundo de Reserva integrados."
+        ],
+        correta: 0,
+        explicacao: "A Taxa de Administração de Consórcios, que remunera a administradora pela formação e gestão do grupo durante o contrato, é calculada tendo como base exclusivamente o valor total da carta de crédito contratada[cite: 2]."
+    },
+    {
+        id: 34,
+        topico: "Seguros",
+        conceito: "Prêmio, Franquia e Cobertura",
+        enunciado: "Rafael tem 35 anos. Sua maior preocupação no trânsito é ter que indenizar um terceiro em um alto valor caso seja responsabilizado num acidente. Sabendo que ele deseja pagar o menor prêmio possível no seguro (baratear o custo anual), mas se protegendo desse risco que mais o preocupa, você deveria recomendar:",
+        opcoes: [
+            "A) Seguro com maior franquia e com uma menor cobertura para danos a terceiros.",
+            "B) Seguro com menor franquia e com uma maior cobertura para danos a terceiros.",
+            "C) Seguro com maior franquia e com uma maior cobertura para danos a terceiros.",
+            "D) Seguro com menor franquia e com uma menor cobertura para danos a terceiros."
+        ],
+        correta: 2,
+        explicacao: "Para pagar um prêmio (custo) menor, o segurado deve assumir uma franquia MAIOR (retendo mais risco de danos ao próprio carro). Como sua preocupação central é o risco de processo, ele deve maximizar a cobertura contra danos a terceiros[cite: 2]."
+    },
+    {
+        id: 35,
+        topico: "Inovação Financeira",
+        conceito: "Drex (Real Digital) e Smart Contracts",
+        enunciado: "Mário busca expandir as operações financeiras de sua empresa avaliando as possibilidades do Real Digital (Drex). Ele se interessou pela programabilidade dessa tecnologia. O principal impacto da programabilidade do Drex para os negócios é que:",
+        opcoes: [
+            "A) A introdução de contratos inteligentes permitirá desenvolver produtos e serviços financeiros personalizados a um custo menor, melhorando o acesso e a automação.",
+            "B) O Real Digital reduzirá custos operacionais, mas não influenciará a personalização dos produtos transacionados.",
+            "C) Eliminará todos os riscos das transações financeiras, garantindo liquidação 100% livre de fraudes em todas as operações.",
+            "D) A programabilidade forçará a padronização e limitação global das transferências em território nacional."
+        ],
+        correta: 0,
+        explicacao: "A base do Real Digital (Drex) é o uso de DLT (tecnologia de registro distribuído). Sua característica de programabilidade via 'smart contracts' (contratos inteligentes) automatiza e permite a personalização barata de serviços financeiros avançados[cite: 1]."
+    },
+    {
+        id: 36,
+        topico: "Economia e Finanças",
+        conceito: "Impacto da Selic em Carteira Conservadora",
+        enunciado: "Nelson tem perfil conservador e foca na preservação de capital. Com a recente elevação contínua da taxa básica de juros (Selic) pelo Copom em resposta à inflação, ele busca orientação sobre como ajustar sua carteira. A melhor opção seria:",
+        opcoes: [
+            "A) Aumentar a posição em ativos pós-fixados (CDI) e reduzir a posição atrelada à renda variável (ações/Ibovespa).",
+            "B) Aumentar a posição em aplicações atreladas ao IBOVESPA e reduzir posições em câmbio futuro.",
+            "C) Montar uma posição comprada em Dólar e reduzir a alocação em títulos prefixados.",
+            "D) Aumentar exposição em títulos prefixados e posições compradas no mercado de câmbio."
+        ],
+        correta: 0,
+        explicacao: "Para um conservador, a alta da Selic torna a Renda Fixa pós-fixada (CDI/Selic) o porto mais atrativo e seguro[cite: 1]. Ao mesmo tempo, juros altos desestimulam o consumo e crédito, derrubando o preço de ações na bolsa (indicando venda dessa classe para mitigar perdas)[cite: 1]."
+    },
+    {
+        id: 37,
+        topico: "Fundos de Investimento",
+        conceito: "Descolamento de Preço de ETF (Spread)",
+        enunciado: "André notou que, durante um dia de pânico generalizado e forte oscilação na bolsa, a cotação do seu ETF apresentou grande variação em relação ao Valor Patrimonial (NAV) do índice referência. O principal fator que explica essa diferença é:",
+        opcoes: [
+            "A) A redução brusca da liquidez dos ativos subjacentes, dificultando a atuação do Market Maker e o ajuste eficiente entre o preço do ETF e a referência.",
+            "B) Erro técnico na metodologia de cálculo do índice de referência pela B3.",
+            "C) O aumento agudo no volume de negociações do próprio ETF por investidores de varejo.",
+            "D) O impacto residual de um evento corporativo de split em uma única ação da carteira do fundo."
+        ],
+        correta: 0,
+        explicacao: "A cota de um ETF é transacionada na bolsa, enquanto seu patrimônio é lastreado nas ações dentro do fundo. Em estresse severo de liquidez das ações subjacentes, os árbitros do mercado não conseguem equalizar os preços, ocorrendo o 'descolamento'[cite: 1]."
+    },
+    {
+        id: 38,
+        topico: "Planejamento Financeiro",
+        conceito: "Horizonte Temporal de Investimentos",
+        enunciado: "Carlos planeja comprar um carro em 2 anos e guardar recursos para se aposentar aos 65 anos. O horizonte de investimento é uma variável vital no aconselhamento, e Carlos precisa entender que:",
+        opcoes: [
+            "A) O tempo dedicado a cada objetivo dita a escolha: demandas de liquidez e segurança no curto prazo e maior tolerância à volatilidade/risco no longo prazo.",
+            "B) Independente do prazo, a Renda Fixa com FGC garante a blindagem necessária para a realização rápida de todos os objetivos.",
+            "C) No curto prazo (carro), pode-se e deve-se apostar em ativos mais voláteis para alcançar rapidamente a meta.",
+            "D) Para objetivos distantes como a aposentadoria, deve-se diminuir drasticamente a diversificação e focar num único ativo de longo prazo."
+        ],
+        correta: 0,
+        explicacao: "Metas de curto prazo não suportam quedas de mercado (pois não haverá tempo para recuperar), exigindo segurança. Metas longas permitem maior exposição ao risco, usando o tempo a favor para anular crises e obter maior prêmio histórico de risco[cite: 1]."
+    },
+    {
+        id: 39,
+        topico: "Previdência Complementar",
+        conceito: "Conversão em Renda e Planejamento Sucessório",
+        enunciado: "Aristides possui um VGBL robusto e deseja proteção para a esposa (55 anos) e seu único filho (15 anos) após o seu futuro falecimento. Para evitar inventário e custos, e assegurar ambos a longo prazo no momento de conversão, a melhor opção de renda é:",
+        opcoes: [
+            "A) Uma renda mensal vitalícia reversível ao cônjuge, com cláusula de continuidade para menores.",
+            "B) Resgate total líquido de impostos no ato da aposentadoria, reinvestindo em Fundos Exclusivos.",
+            "C) Renda mensal vitalícia reversível simples ao beneficiário, apontando exclusivamente o filho adolescente.",
+            "D) Renda mensal temporária com prazo mínimo garantido atrelado à expectativa de vida brasileira."
+        ],
+        correta: 0,
+        explicacao: "A renda vitalícia com reversão ao cônjuge e continuidade para menores é o único desenho de benefício previdenciário (dentre as citadas) capaz de cobrir, simultaneamente e sem transitar por inventário (ITCMD), o cônjuge e a prole até a maioridade estipulada[cite: 1]."
+    },
+    {
+        id: 40,
+        topico: "Renda Fixa e Títulos Públicos",
+        conceito: "Tesouro Direto e Reserva de Emergência",
+        enunciado: "Marcos quer investir no Tesouro Direto para compor sua reserva de emergência, pois ouviu dizer que tem ativos muito seguros e garantidos pelo governo federal. Para quem precisa de segurança para resgatar a qualquer momento imprevisto, deve-se aplicar em:",
+        opcoes: [
+            "A) Tesouro Prefixado (LTN), pois ele fixa a taxa e já saberá exatamente o montante no final do contrato.",
+            "B) Tesouro Selic (LFT), pois é o título atrelado aos juros básicos, não sofrendo deságios bruscos na marcação a mercado em caso de resgate antecipado.",
+            "C) Tesouro IPCA+ (NTN-B), porque garante o poder de compra (inflação) independente do dia de resgate.",
+            "D) Títulos emitidos pelo Governo com Juros Semestrais garantem o pagamento rápido das emergências correntes."
+        ],
+        correta: 1,
+        explicacao: "A Reserva de Emergência prioriza altíssima liquidez e zero volatilidade. O Tesouro Selic (LFT) possui as duas características. IPCA+ e Prefixado sofrem 'Marcação a Mercado', ou seja, seus preços oscilam fortemente antes do vencimento, podendo gerar prejuízo num resgate antecipado[cite: 2]."
+    },
+{
+        id: 41,
+        topico: "Compliance e Ética",
+        conceito: "Prevenção à Lavagem de Dinheiro (PLD)",
+        enunciado: "Júlia, gerente de compliance de um banco, detecta uma remessa internacional atípica realizada por um cliente para um país considerado de alto risco (paraíso fiscal), sem justificativa econômica clara. Segundo as normas de PLD e orientações do COAF, Júlia deve:",
+        opcoes: [
+            "A) Comunicar a operação ao COAF em até 24 horas, sem dar ciência ao cliente sobre a referida comunicação.",
+            "B) Bloquear a conta do cliente imediatamente e aguardar o contato dele para explicações.",
+            "C) Avisar ao cliente que a operação é suspeita e que ele será reportado ao Banco Central.",
+            "D) Solicitar uma auditoria externa antes de tomar qualquer medida de comunicação oficial."
+        ],
+        correta: 0,
+        explicacao: "A comunicação de operações suspeitas deve ser feita ao COAF de forma sigilosa (sem avisar o cliente) para não atrapalhar possíveis investigações. O prazo regulamentar para operações suspeitas é de 24 horas após a decisão de reporte."
+    },
+    {
+        id: 42,
+        topico: "Fundos de Investimento",
+        conceito: "Nova Estrutura CVM 175 (Classes e Subclasses)",
+        enunciado: "Com a entrada em vigor da Resolução CVM 175, a estrutura dos fundos de investimento mudou. Agora, um fundo pode ter diferentes classes de cotas. Sobre essa nova estrutura, é correto afirmar:",
+        opcoes: [
+            "A) As diferentes classes de cotas possuem patrimônios segregados entre si, respondendo cada uma por suas próprias obrigações.",
+            "B) As subclasses de cotas compartilham obrigatoriamente o mesmo patrimônio segregado da classe à qual pertencem.",
+            "C) A responsabilidade dos cotistas é sempre ilimitada, independentemente do que constar no regulamento.",
+            "D) O fundo deixa de ter um CNPJ próprio, passando a utilizar o CNPJ do administrador para todas as classes."
+        ],
+        correta: 0,
+        explicacao: "A grande inovação da CVM 175 é permitir que classes de cotas dentro de um mesmo fundo tenham patrimônios segregados, o que protege os investidores de uma classe contra dívidas ou riscos de outra classe do mesmo fundo."
+    },
+    {
+        id: 43,
+        topico: "Compliance e Ética",
+        conceito: "LGPD no Setor Financeiro",
+        enunciado: "Um banco deseja utilizar os dados de transações de cartão de crédito de seus clientes para oferecer produtos de seguros personalizados através de uma empresa parceira. Segundo a Lei Geral de Proteção de Dados (LGPD), essa prática:",
+        opcoes: [
+            "A) Requer o consentimento específico e informado do cliente para o compartilhamento dos dados com finalidades de marketing de terceiros.",
+            "B) É permitida livremente, pois os dados já pertencem ao banco por força do relacionamento comercial.",
+            "C) Só pode ser feita se os dados forem anonimizados, perdendo a utilidade para ofertas personalizadas.",
+            "D) É proibida em qualquer circunstância, mesmo com o consentimento do titular."
+        ],
+        correta: 0,
+        explicacao: "A LGPD exige que o tratamento de dados pessoais para finalidades que fujam do contrato original (como marketing de parceiros) tenha uma base legal clara, geralmente o consentimento explícito do titular."
+    },
+    {
+        id: 44,
+        topico: "Previdência Complementar",
+        conceito: "Cálculo de IR - Tabela Regressiva VGBL",
+        enunciado: "Eduardo investiu R$ 250.000 em um VGBL. Após 12 anos, o saldo total era de R$ 400.000 (sendo R$ 150.000 de rendimento acumulado). Ele decide resgatar R$ 100.000 do saldo total. Considerando que ele optou pela tabela regressiva, qual o valor do IR retido na fonte?",
+        opcoes: [
+            "A) R$ 3.750,00",
+            "B) R$ 10.000,00",
+            "C) R$ 15.000,00",
+            "D) R$ 2.500,00"
+        ],
+        correta: 0,
+        explicacao: "No VGBL, o IR incide apenas sobre o rendimento. Como o rendimento é 37,5% do total (150k/400k), no resgate de 100k, a base de cálculo é R$ 37.500. Após 10 anos, a alíquota regressiva é de 10%. Logo: 37.500 * 10% = R$ 3.750,00."
+    },
+    {
+        id: 45,
+        topico: "Renda Fixa e Derivativos",
+        conceito: "Opções de Compra (Call)",
+        enunciado: "Um investidor acredita que as ações de uma empresa de tecnologia vão subir nos próximos 3 meses, mas não quer comprometer todo o seu capital comprando as ações agora. Ele decide comprar uma 'Opção de Compra' (Call). Ao fazer isso, ele:",
+        opcoes: [
+            "A) Adquire o direito de comprar a ação por um preço fixado, pagando um valor (prêmio) por esse direito.",
+            "B) Assume a obrigação de comprar a ação no vencimento, independente do preço de mercado.",
+            "C) Recebe um prêmio para garantir que venderá a ação caso o comprador queira.",
+            "D) Protege sua carteira contra a queda das ações, garantindo um preço mínimo de venda."
+        ],
+        correta: 0,
+        explicacao: "O titular (comprador) de uma Call tem o DIREITO de comprar o ativo. Para ter esse direito, ele paga um prêmio ao lançador (vendedor). Ele exercerá esse direito se o preço de mercado for maior que o preço de exercício."
+    },
+    {
+        id: 46,
+        topico: "Economia e Finanças",
+        conceito: "COPOM e a Taxa Selic Meta",
+        enunciado: "O Comitê de Política Monetária (COPOM) se reúne periodicamente para definir a taxa Selic Meta. Sobre esse processo, é correto afirmar:",
+        opcoes: [
+            "A) O COPOM define a meta para a taxa Selic; o Banco Central atua no mercado aberto para que a Selic Efetiva fique próxima dessa meta.",
+            "B) A taxa Selic Meta é a taxa cobrada nos empréstimos entre bancos comerciais com garantia de títulos privados.",
+            "C) As decisões do COPOM visam exclusivamente o controle da taxa de câmbio.",
+            "D) Se o COPOM aumenta a Selic, o objetivo principal é estimular o consumo e aumentar a inflação."
+        ],
+        correta: 0,
+        explicacao: "O COPOM define a 'Meta'. Através de operações de compra e venda de títulos públicos (Open Market), o BACEN garante que a taxa real praticada no mercado (Selic Over) flutue ao redor dessa meta."
+    },
+    {
+        id: 47,
+        topico: "Análise de Perfil do Investidor (API)",
+        conceito: "Suitability e Recomendação",
+        enunciado: "Um cliente possui perfil 'Moderado' segundo o formulário de Suitability do banco. Ele solicita ao gerente a aplicação de todo o seu patrimônio em um fundo de ações de alta volatilidade. O gerente deve:",
+        opcoes: [
+            "A) Alertar sobre a desconformidade com o perfil e, caso o cliente insista, colher uma declaração de ciência de risco antes de efetivar a operação.",
+            "B) Impedir a operação terminantemente, pois o sistema de compliance bloqueia ordens fora do perfil.",
+            "C) Realizar a operação normalmente, já que a decisão final é sempre do cliente e o perfil é apenas uma sugestão.",
+            "D) Alterar o perfil do cliente para 'Arrojado' manualmente para permitir que a operação seja concluída sem avisos."
+        ],
+        correta: 0,
+        explicacao: "A norma de Suitability não proíbe o cliente de investir onde quiser, mas obriga a instituição a avisar formalmente quando o produto está fora do perfil e colher a assinatura de que o cliente está ciente do risco."
+    },
+    {
+        id: 48,
+        topico: "Compliance e Ética",
+        conceito: "Front Running",
+        enunciado: "Um operador de mesa de uma corretora recebe uma ordem de compra de um grande investidor institucional que certamente fará o preço da ação subir. Antes de executar a ordem do cliente, o operador compra ações para sua própria conta pessoal. Essa prática ilícita é conhecida como:",
+        opcoes: [
+            "A) Front Running",
+            "B) Insider Trading",
+            "C) Churning",
+            "D) Scalping"
+        ],
+        correta: 0,
+        explicacao: "Front Running ocorre quando um profissional 'corre na frente' de uma ordem de cliente que ele sabe que impactará o mercado, agindo em proveito próprio."
+    },
+    {
+        id: 49,
+        topico: "Crédito Privado",
+        conceito: "CRI e CRA (Certificados de Recebíveis)",
+        enunciado: "Os Certificados de Recebíveis Imobiliários (CRI) e do Agronegócio (CRA) são títulos de renda fixa que possuem como característica comum:",
+        opcoes: [
+            "A) Isenção de Imposto de Renda para investidores Pessoas Físicas e ausência de garantia do FGC.",
+            "B) Garantia do FGC até R$ 250 mil e tributação pela tabela regressiva.",
+            "C) São emitidos obrigatoriamente por bancos múltiplos para captar recursos para o setor habitacional.",
+            "D) Possuem liquidez diária garantida pelo Banco Central do Brasil."
+        ],
+        correta: 0,
+        explicacao: "CRIs e CRAs são emitidos por companhias securitizadoras (não bancos). Para fomentar esses setores, o governo concede isenção de IR para PF, mas esses títulos não contam com o FGC."
+    },
+    {
+        id: 50,
+        topico: "Fundos de Investimento",
+        conceito: "Marcação a Mercado (MTM)",
+        enunciado: "O objetivo principal da Marcação a Mercado (Mark-to-Market) nos fundos de investimento é:",
+        opcoes: [
+            "A) Evitar a transferência de riqueza entre os cotistas no momento de entradas e saídas do fundo.",
+            "B) Garantir que o fundo sempre apresente rentabilidade positiva ao final de cada mês.",
+            "C) Facilitar o cálculo do Imposto de Renda (come-cotas) pelo administrador.",
+            "D) Permitir que o gestor venda os ativos pelo preço de custo histórico em momentos de crise."
+        ],
+        correta: 0,
+        explicacao: "A marcação a mercado registra o preço dos ativos pelo valor de venda atual. Isso evita que quem entra ou sai do fundo o faça com preços irreais, o que prejudicaria os demais cotistas."
+    },
+{
+    id: 51,
+    topico: "Sistema Financeiro Nacional",
+    conceito: "Limites do FGC (Fundo Garantidor de Créditos)",
+    enunciado: "Um investidor possui $R\$ 250.000$ em cada uma de cinco instituições financeiras distintas, todas pertencentes a conglomerados diferentes. Caso todas essas instituições sofram intervenção ou liquidação simultânea, qual o valor total que o investidor terá direito a receber pelo FGC?",
+    opcoes: [
+        "A) $R\$ 1.000.000,00$, respeitando o teto global de 1 milhão a cada período de 4 anos.",
+        "B) $R\$ 1.250.000,00$, pois o limite é de 250 mil por instituição sem teto global.",
+        "C) $R\$ 250.000,00$, pois o FGC cobre apenas um CPF por evento, independente do número de bancos.",
+        "D) $R\$ 500.000,00$, que é o limite máximo permitido para investidores qualificados."
+    ],
+    correta: 0,
+    explicacao: "O FGC garante até $R\$ 250.000$ por CPF e por instituição/conglomerado. No entanto, existe um teto global de $R\$ 1.000.000$ a cada 4 anos. Como ele tem 1,25 milhão no total, ele receberá apenas o teto de 1 milhão
+},
+{
+id: 52,
+topico: "Economia e Finanças",
+conceito: "Composição do IGP-M",
+enunciado: "O IGP-M (Índice Geral de Preços do Mercado) é amplamente utilizado em contratos de aluguel e energia. Sua composição é formada pela média ponderada de quais outros três índices?",
+opcoes: [
+"A) IPA (60%), IPC (30%) e INCC (10%).",
+"B) IPCA (50%), INPC (30%) e IPA (20%).",
+"C) IPA (50%), IPC (40%) e INCC (10%).",
+"D) IPC-Fipe (60%), INCC (20%) e IPA (20%)."
+],
+correta: 0,
+explicacao: "O IGP-M, calculado pela FGV, é composto pelo IPA (Atacado - 60%), IPC (Consumidor - 30%) e INCC (Construção Civil - 10%)."
+},
+{
+id: 53,
+topico: "Fundos de Investimento",
+conceito: "Classificação de Fundos de Ações",
+enunciado: "Para que um fundo de investimento seja classificado pela CVM como um 'Fundo de Ações', ele deve manter, no mínimo, qual percentual do seu patrimônio líquido aplicado em ações, bônus de subscrição ou cotas de outros fundos de ações?",
+opcoes: [
+"A) 67%",
+"B) 50%",
+"C) 95%",
+"D) 80%"
+],
+correta: 0,
+explicacao: "Segundo a regulamentação da CVM, fundos de ações devem ter no mínimo 67% (dois terços) do seu patrimônio investido nos ativos de renda variável citados."
+},
+{
+id: 54,
+topico: "Compliance e Ética",
+conceito: "Insider Trading",
+enunciado: "Um diretor de uma companhia aberta compartilha com um amigo próximo que a empresa será comprada por uma multinacional, antes que esse fato seja divulgado ao mercado. O amigo compra as ações e lucra com a alta. Essa prática é definida como:",
+opcoes: [
+"A) Insider Trading (Uso de Informação Privilegiada).",
+"B) Front Running.",
+"C) Churning.",
+"D) Market Abuse (Manipulação de Mercado)."
+],
+correta: 0,
+explicacao: "O uso de informações relevantes que ainda não são públicas para obter vantagem no mercado de capitais é crime de Insider Trading."
+},
+{
+id: 55,
+topico: "Renda Fixa e Derivativos",
+conceito: "Conceito de Swap",
+enunciado: "Um exportador brasileiro receberá pagamentos em dólar daqui a 6 meses. Para se proteger de uma possível queda da moeda americana (Hedge), ele realiza um contrato de derivativo para trocar a variação do Dólar por uma taxa fixa de juros. Esse contrato é um:",
+opcoes: [
+"A) Swap",
+"B) Opção de Compra (Call)",
+"C) Termo de Ações",
+"D) Debênture Incentivada"
+],
+correta: 0,
+explicacao: "O Swap é um contrato de troca de fluxos de caixa (ex: trocar dólar por CDI ou taxa fixa), muito usado para proteção (hedge) contra riscos de mercado."
+},
+{
+id: 56,
+topico: "Fundos de Investimento",
+conceito: "Multimercado Juros e Moedas",
+enunciado: "Um investidor busca um fundo que possa investir em ativos de renda fixa, moedas e derivativos, buscando retornos acima do CDI, mas que não tenha exposição ao mercado de ações. Qual subclasse de fundo multimercado é a mais adequada?",
+opcoes: [
+"A) Multimercado Juros e Moedas.",
+"B) Multimercado Estratégia Livre.",
+"C) Multimercado Long and Short.",
+"D) Multimercado Macro."
+],
+correta: 0,
+explicacao: "A estratégia de Juros e Moedas foca exclusivamente em ativos de renda fixa e câmbio, sem exposição a riscos de renda variável (ações)."
+},
+{
+id: 57,
+topico: "Análise de Perfil do Investidor (API)",
+conceito: "Periodicidade de Atualização",
+enunciado: "De acordo com as normas da ANBIMA e CVM, a atualização do questionário de Análise de Perfil do Investidor (API) deve ocorrer em um intervalo não superior a:",
+opcoes: [
+"A) 24 meses.",
+"B) 12 meses.",
+"C) 36 meses.",
+"D) 5 anos."
+],
+correta: 0,
+explicacao: "O Perfil do Investidor (Suitability) deve ser reavaliado e atualizado obrigatoriamente a cada 24 meses (2 anos)."
+},
+{
+id: 58,
+topico: "Renda Variável",
+conceito: "Isenção de IR em Ações (Vendas até 20k)",
+enunciado: "Um investidor pessoa física vendeu $R\$ 18.000$ em ações em um único mês, obtendo um lucro de $R\$ 2.000$. Sobre esse lucro, qual a alíquota de Imposto de Renda devida?",
+opcoes: [
+"A) Isento, pois as vendas totais no mês não ultrapassaram $R\$ 20.000$.",
+"B) 15%, devendo ser pago via DARF.",
+"C) 20%, por se tratar de mercado à vista.",
+"D) 0,005% retido na fonte (dedo-duro) apenas."
+],
+correta: 0,
+explicacao: "Pessoas físicas possuem isenção de IR sobre o ganho de capital em ações se o valor total das vendas no mês for igual ou inferior a $R\$ 20.000$ (exceto em operações de Day Trade)."
+},
+{
+id: 59,
+topico: "Sistema Financeiro Nacional",
+conceito: "CMN e Meta de Inflação",
+enunciado: "Dentro da estrutura do SFN, qual órgão é o responsável por fixar as metas para a inflação que devem ser perseguidas pelo Banco Central?",
+opcoes: [
+"A) Conselho Monetário Nacional (CMN).",
+"B) Comitê de Política Monetária (COPOM).",
+"C) Ministério do Planejamento.",
+"D) Comissão de Valores Mobiliários (CVM)."
+],
+correta: 0,
+explicacao: "O CMN (órgão normativo máximo) fixa a meta de inflação. O Banco Central (órgão executor) utiliza a taxa Selic para tentar atingir essa meta."
+},
+{
+id: 60,
+topico: "Fundos de Investimento",
+conceito: "Distribuição de Resultados em FIIs",
+enunciado: "Os Fundos de Investimento Imobiliário (FII) que possuem suas cotas admitidas à negociação em bolsa são obrigados a distribuir aos cotistas, no mínimo, qual percentual dos lucros auferidos (regime de caixa) a cada semestre?",
+opcoes: [
+"A) 95%",
+"B) 100%",
+"C) 50%",
+"D) 75%"
+],
+correta: 0,
+explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lucro líquido apurado segundo o regime de caixa em cada semestre civil."
+},
+  {
+        id: 61,
+        topico: "Fundos de Investimento",
+        conceito: "FIDC (Fundos de Investimento em Direitos Creditórios)",
+        enunciado: "Um Fundo de Investimento em Direitos Creditórios (FIDC) é um veículo que destina parcela preponderante de seu patrimônio para a aplicação em direitos creditórios. Sobre as cotas de um FIDC, é correto afirmar:",
+        opcoes: [
+            "A) Podem ser divididas em classes Sênior (preferência no recebimento) e Subordinada (que absorve eventuais perdas primeiro).",
+            "B) São garantidas pelo Fundo Garantidor de Créditos (FGC) até o limite de R$ 250.000,00.",
+            "C) Possuem liquidez diária obrigatória por norma da CVM.",
+            "D) São destinadas exclusivamente para investidores não qualificados (varejo)."
+        ],
+        correta: 0,
+        explicacao: "Os FIDCs estruturam suas cotas em classes: a Sênior tem prioridade em resgate e amortização, enquanto a Subordinada funciona como uma garantia para os seniores, sendo a última a receber e a primeira a sofrer perdas."
+    },
+    {
+        id: 62,
+        topico: "Compliance e Ética",
+        conceito: "Fases da Lavagem de Dinheiro",
+        enunciado: "O processo de lavagem de dinheiro é comumente dividido em três etapas independentes mas interligadas. A etapa na qual o criminoso realiza diversas transações financeiras complexas para dificultar o rastreamento da origem do dinheiro é chamada de:",
+        opcoes: [
+            "A) Ocultação (ou Estratificação).",
+            "B) Colocação.",
+            "C) Integração.",
+            "D) Justificação."
+        ],
+        correta: 0,
+        explicacao: "A 'Ocultação' ou 'Estratificação' (Layering) é a segunda fase, onde se busca quebrar a cadeia de evidências através de múltiplas transferências e operações financeiras."
+    },
+    {
+        id: 63,
+        topico: "Renda Fixa e Derivativos",
+        conceito: "Tributação em Operações de Swap",
+        enunciado: "Sobre a tributação do Imposto de Renda incidente nos ganhos auferidos em operações de Swap, é correto afirmar que segue:",
+        opcoes: [
+            "A) A tabela regressiva de Renda Fixa (22,5% a 15%) sobre o rendimento líquido.",
+            "B) Alíquota fixa de 15% retida na fonte pelo banco.",
+            "C) Alíquota fixa de 20%, por ser um derivativo.",
+            "D) Isenção para pessoas físicas em ganhos de até R$ 20.000,00."
+        ],
+        correta: 0,
+        explicacao: "As operações de Swap são tributadas como Renda Fixa, utilizando a tabela regressiva baseada no prazo da operação."
+    },
+    {
+        id: 64,
+        topico: "Fundos de Investimento",
+        conceito: "Come-Cotas e Períodos",
+        enunciado: "A antecipação semestral do Imposto de Renda em fundos de investimento (conhecida como come-cotas) ocorre obrigatoriamente no último dia útil de quais meses?",
+        opcoes: [
+            "A) Maio e Novembro.",
+            "B) Junho e Dezembro.",
+            "C) Janeiro e Julho.",
+            "D) Abril e Outubro."
+        ],
+        correta: 0,
+        explicacao: "O recolhimento do come-cotas acontece sistematicamente nos meses de Maio e Novembro para fundos abertos (exceto fundos de ações)."
+    },
+    {
+        id: 65,
+        topico: "Previdência Complementar",
+        conceito: "Diferença entre PGBL e VGBL",
+        enunciado: "Um cliente que utiliza o formulário completo da declaração de ajuste anual do IR e contribui para a previdência social oficial deseja investir em um plano para deduzir até 12% de sua renda tributável. Qual plano deve ser indicado e qual a base de cálculo do IR no resgate?",
+        opcoes: [
+            "A) PGBL; o imposto incidirá sobre o valor total resgatado.",
+            "B) VGBL; o imposto incidirá apenas sobre o rendimento.",
+            "C) PGBL; o imposto incidirá apenas sobre o rendimento.",
+            "D) VGBL; o imposto incidirá sobre o valor total resgatado."
+        ],
+        correta: 0,
+        explicacao: "O PGBL permite a dedução fiscal de até 12% da renda bruta, porém, no momento do resgate, o IR incide sobre todo o montante (capital + juros)."
+    },
+    {
+        id: 66,
+        topico: "Economia e Finanças",
+        conceito: "Taxa SELIC Over vs Meta",
+        enunciado: "Diferente da Selic Meta (definida pelo COPOM), a Taxa Selic Over (ou Efetiva) é apurada diariamente e representa:",
+        opcoes: [
+            "A) A média ponderada das operações de empréstimos de um dia entre instituições financeiras, lastreadas em títulos públicos federais.",
+            "B) A taxa média dos empréstimos entre bancos lastreados em certificados de depósitos bancários (CDB).",
+            "C) A taxa de juros cobrada pelo Banco Central no redesconto bancário.",
+            "D) A taxa de inflação apurada pelo IBGE para o período de 24 horas."
+        ],
+        correta: 0,
+        explicacao: "A Selic Over é a taxa real praticada no mercado interbancário para operações de curtíssimo prazo que utilizam títulos públicos como garantia."
+    },
+    {
+        id: 67,
+        topico: "Renda Variável",
+        conceito: "Tag Along em Ações Ordinárias",
+        enunciado: "O mecanismo de 'Tag Along' garante aos acionistas minoritários o direito de deixar a companhia caso o controle seja vendido. Pela Lei das S.A., as ações Ordinárias (ON) devem ter um Tag Along de, no mínimo:",
+        opcoes: [
+            "A) 80% do preço pago por ação do bloco de controle.",
+            "B) 100% do valor de mercado das ações PN.",
+            "C) 50% do valor patrimonial da ação.",
+            "D) 70% do lucro líquido distribuído no último exercício."
+        ],
+        correta: 0,
+        explicacao: "A Lei das S.A. exige um Tag Along mínimo de 80% para as ações Ordinárias. Segmentos de listagem como o Novo Mercado exigem 100%."
+    },
+    {
+        id: 68,
+        topico: "Compliance e Ética",
+        conceito: "Pessoas Politicamente Expostas (PEP)",
+        enunciado: "De acordo com a regulamentação vigente, uma pessoa mantém a condição de PEP (Pessoa Politicamente Exposta) por quanto tempo após ter deixado o cargo público que a qualificava?",
+        opcoes: [
+            "A) Por um período de 5 anos.",
+            "B) Por um período de 2 anos.",
+            "C) Indefinidamente, enquanto houver relacionamento bancário.",
+            "D) Apenas enquanto estiver exercendo a função pública."
+        ],
+        correta: 0,
+        explicacao: "A condição de PEP persiste por 5 anos após a data em que a pessoa deixou de figurar nas posições que a qualificavam como tal."
+    },
+    {
+        id: 69,
+        topico: "Previdência Complementar",
+        conceito: "Tabela Progressiva no Resgate",
+        enunciado: "Caso um participante de um plano de previdência opte pela Tabela Progressiva de IR, qual será a alíquota retida na fonte pela seguradora no momento de um resgate antecipado?",
+        opcoes: [
+            "A) 15%, a título de antecipação, devendo ser ajustado na declaração anual.",
+            "B) Seguindo a tabela de 22,5% a 15% conforme o prazo.",
+            "C) 10% fixo, independente do valor.",
+            "D) Isento de retenção na fonte, sendo tributado apenas no ajuste anual."
+        ],
+        correta: 0,
+        explicacao: "Na tabela progressiva, qualquer resgate sofre retenção na fonte de 15%. O valor final devido (que pode ser maior ou menor) é calculado na Declaração de Ajuste Anual conforme a renda total do contribuinte."
+    },
+    {
+        id: 70,
+        topico: "Renda Fixa e Derivativos",
+        conceito: "Letra de Crédito do Agronegócio (LCA)",
+        enunciado: "Sobre a LCA (Letra de Crédito do Agronegócio), é correto afirmar:",
+        opcoes: [
+            "A) É isenta de IR para pessoa física e possui garantia do FGC até o limite vigente.",
+            "B) É tributada pela tabela regressiva e possui garantia do FGC.",
+            "C) É isenta de IR para pessoa física, mas não conta com proteção do FGC.",
+            "D) É emitida obrigatoriamente por securitizadoras do agronegócio."
+        ],
+        correta: 0,
+        explicacao: "A LCA, assim como a LCI, goza de isenção de IR para investidores pessoa física e conta com a garantia do FGC (limite de 250 mil por CPF/conglomerado)."
+    },
+{
+    id: 71,
+    topico: "Análise de Perfil do Investidor (API)",
+    conceito: "Recusa no preenchimento do Suitability",
+    enunciado: "Um cliente novo em uma instituição financeira deseja realizar uma aplicação em um Fundo de Investimento de Ações, mas se recusa terminantemente a preencher o formulário de Análise de Perfil do Investidor (API). Nesse caso, a instituição:",
+    opcoes: [
+        "A) Pode realizar a operação, desde que o cliente assine um termo de recusa e ciência de que a instituição não pôde realizar a análise de adequação.",
+        "B) É obrigada por lei a preencher o formulário pelo cliente com base em sua renda estimada.",
+        "C) Deve impedir a operação, pois o preenchimento do API é obrigatório e sem exceções para qualquer tipo de investimento.",
+        "D) Pode realizar a operação sem qualquer termo, desde que o cliente tenha patrimônio superior a R$ 1 milhão."
+    ],
+    correta: 0,
+    explicacao: "A norma permite a realização da operação em caso de recusa, desde que o investidor assine declaração expressa de que não forneceu as informações e de que está ciente da impossibilidade de verificação de adequação (suitability)."
+},
+{
+    id: 72,
+    topico: "Economia e Finanças",
+    conceito: "Índice de Preços ao Consumidor Amplo (IPCA)",
+    enunciado: "O IPCA é considerado o índice oficial de inflação do Brasil, sendo utilizado pelo Conselho Monetário Nacional para o acompanhamento das metas de inflação. Sobre ele, é correto afirmar que é medido pelo:",
+    opcoes: [
+        "A) IBGE, e reflete o custo de vida de famílias com renda de 1 a 40 salários mínimos.",
+        "B) FGV, e reflete o custo de vida de famílias com renda de 1 a 30 salários mínimos.",
+        "C) IBGE, e foca apenas nos preços de atacado (IPA).",
+        "D) Banco Central, para medir a variação do PIB real."
+    ],
+    correta: 0,
+    explicacao: "O IPCA é calculado pelo IBGE e abrange famílias com rendimentos mensais de 1 a 40 salários mínimos residentes em áreas urbanas."
+},
+{
+    id: 73,
+    topico: "Renda Fixa",
+    conceito: "Debêntures Incentivadas",
+    enunciado: "As Debêntures Incentivadas são títulos de dívida emitidos por empresas para captar recursos destinados a projetos de infraestrutura. O principal atrativo para o investidor Pessoa Física é:",
+    opcoes: [
+        "A) Isenção de Imposto de Renda sobre os rendimentos auferidos.",
+        "B) Garantia do Tesouro Nacional caso a empresa emissora quebre.",
+        "C) Garantia do FGC até o limite de R$ 250.000,00.",
+        "D) Rentabilidade fixa sempre superior à Taxa Selic Meta."
+    ],
+    correta: 0,
+    explicacao: "Para estimular investimentos em infraestrutura, o governo concede isenção de IR para pessoas físicas que investem em debêntures incentivadas."
+},
+{
+    id: 74,
+    topico: "Fundos de Investimento",
+    conceito: "Segregação de Funções (Chinese Wall)",
+    enunciado: "O termo 'Chinese Wall' (Muralha da China) no mercado financeiro refere-se à:",
+    opcoes: [
+        "A) Segregação física e de sistemas entre a área de gestão de recursos de terceiros e a área de tesouraria própria do banco.",
+        "B) Barreira comercial para impedir a entrada de investidores estrangeiros no mercado nacional.",
+        "C) Proteção cibernética do Banco Central contra ataques externos.",
+        "D) Regra que impede a cobrança de taxa de performance em fundos de renda fixa."
+    ],
+    correta: 0,
+    explicacao: "O Chinese Wall é um controle interno que separa a gestão do dinheiro dos clientes da gestão do dinheiro do próprio banco, evitando conflitos de interesse e uso de informação privilegiada."
+},
+{
+    id: 75,
+    topico: "Compliance e Ética",
+    conceito: "Fase de Integração (Lavagem de Dinheiro)",
+    enunciado: "Na última fase do processo de lavagem de dinheiro, os ativos retornam à economia com aparência de origem lícita, muitas vezes através de investimentos em empresas de fachada ou compra de bens de luxo. Essa fase é a:",
+    opcoes: [
+        "A) Integração.",
+        "B) Colocação.",
+        "C) Ocultação.",
+        "D) Estratificação."
+    ],
+    correta: 0,
+    explicacao: "A Integração é a terceira e última fase, onde o dinheiro 'limpo' é reintegrado ao sistema financeiro formal de forma que sua origem criminosa seja difícil de identificar."
+},
+{
+    id: 76,
+    topico: "Fundos de Investimento",
+    conceito: "Cota de Abertura vs Cota de Fechamento",
+    enunciado: "Um fundo que utiliza o valor do patrimônio líquido do próprio dia para converter os recursos aplicados pelos investidores utiliza o conceito de:",
+    opcoes: [
+        "A) Cota de Abertura.",
+        "B) Cota de Fechamento.",
+        "C) Cota de Ajuste.",
+        "D) Cota Contingenciada."
+    ],
+    correta: 0,
+    explicacao: "A cota de abertura é calculada com base no patrimônio do dia anterior ajustado pela expectativa de juros do dia atual. A aplicação ocorre no valor conhecido no início do dia."
+},
+{
+    id: 77,
+    topico: "Renda Variável",
+    conceito: "ADRs (American Depositary Receipts)",
+    enunciado: "Quando uma empresa brasileira emite recibos de suas ações para serem negociados exclusivamente na bolsa de Nova York (NYSE), esses títulos são chamados de:",
+    opcoes: [
+        "A) ADRs.",
+        "B) BDRs.",
+        "C) ETFs.",
+        "D) Units."
+    ],
+    correta: 0,
+    explicacao: "ADRs são certificados de depósito de ações de empresas estrangeiras (não americanas) negociados nos EUA e cotados em dólares."
+},
+{
+    id: 78,
+    topico: "Previdência Complementar",
+    conceito: "VGBL e ITCMD",
+    enunciado: "Uma das principais vantagens sucessórias do VGBL (Vida Gerador de Benefício Livre) em relação aos investimentos tradicionais em caso de morte do titular é:",
+    opcoes: [
+        "A) A liberação rápida dos recursos aos beneficiários sem a necessidade de passar por inventário.",
+        "B) A garantia de rentabilidade mínima vitalícia independente do mercado.",
+        "C) A isenção total de Imposto de Renda para os herdeiros em qualquer prazo.",
+        "D) A possibilidade de deduzir o valor investido da base de cálculo do IR anual."
+    ],
+    correta: 0,
+    explicacao: "Por ter natureza de seguro de pessoa, o VGBL não entra em inventário, permitindo que os beneficiários indicados recebam os valores de forma célere."
+},
+{
+    id: 79,
+    topico: "Economia e Finanças",
+    conceito: "Política Monetária (Taxa de Redesconto)",
+    enunciado: "Caso o Banco Central deseje adotar uma política monetária restritiva para reduzir a inflação, ele pode optar por:",
+    opcoes: [
+        "A) Elevar a Taxa de Redesconto.",
+        "B) Comprar títulos públicos no mercado aberto.",
+        "C) Reduzir o percentual do compulsório bancário.",
+        "D) Diminuir a Taxa Selic Meta."
+    ],
+    correta: 0,
+    explicacao: "Ao elevar a taxa de redesconto (juros cobrados pelo BACEN aos bancos comerciais), o custo do dinheiro sobe, o crédito diminui e a circulação de moeda cai, caracterizando uma política restritiva."
+},
+{
+    id: 80,
+    topico: "Mercado Financeiro",
+    conceito: "Função da B3 (Brasil, Bolsa, Balcão)",
+    enunciado: "Sobre as atribuições da B3 no mercado financeiro brasileiro, é correto afirmar que ela atua como:",
+    opcoes: [
+        "A) Contraparte central garantidora, assumindo o risco de liquidação das operações realizadas em seus sistemas.",
+        "B) Órgão regulador máximo, com poder de ditar leis sobre o mercado de capitais.",
+        "C) Banco comercial emissor de moedas digitais para o varejo.",
+        "D) Instituição responsável pela custódia exclusiva de Títulos Públicos Federais (SELIC)."
+    ],
+    correta: 0,
+    explicacao: "A B3 atua como Clearing (Câmara de Liquidação) e contraparte central, garantindo que quem vende receba o dinheiro e quem compra receba o ativo, mitigando o risco sistêmico."
+},
+{
+    id: 81,
+    topico: "Sistema Financeiro Nacional",
+    conceito: "Responsabilidades da CVM",
+    enunciado: "Dentre as funções da Comissão de Valores Mobiliários (CVM), destaca-se a de assegurar o funcionamento eficiente e regular dos mercados de bolsa e de balcão. Além disso, é responsabilidade da CVM:",
+    opcoes: [
+        "A) Proteger os titulares de valores mobiliários contra emissões fraudulentas e atos ilegais de administradores de companhias abertas.",
+        "B) Definir a meta da Taxa Selic em conjunto com o Banco Central.",
+        "C) Garantir a liquidez imediata de todos os títulos de renda fixa emitidos por bancos.",
+        "D) Fiscalizar a concessão de crédito imobiliário pelas cooperativas de crédito."
+    ],
+    correta: 0,
+    explicacao: "A CVM tem como foco o mercado de capitais (ações, debêntures, fundos), zelando pela transparência e proteção do investidor contra fraudes e abusos de mercado."
+},
+{
+    id: 82,
+    topico: "Compliance e Ética",
+    conceito: "Front Running",
+    enunciado: "Um operador de mesa de uma corretora recebe uma ordem de compra de um grande fundo de investimento que certamente fará o preço da ação subir. Antes de executar a ordem do cliente, o operador compra ações para sua própria conta. Essa prática ilegal é chamada de:",
+    opcoes: [
+        "A) Front Running.",
+        "B) Insider Trading.",
+        "C) Churning.",
+        "D) Spoofing."
+    ],
+    correta: 0,
+    explicacao: "Front Running é a prática de 'correr na frente' de uma ordem de cliente, aproveitando-se do conhecimento de uma operação que irá impactar o preço do ativo."
+},
+{
+    id: 83,
+    topico: "Fundos de Investimento",
+    conceito: "Marcação a Mercado (MtM)",
+    enunciado: "O conceito de Marcação a Mercado (Mark-to-Market) consiste em registrar o valor dos ativos que compõem a carteira do fundo pelo seu valor de:",
+    opcoes: [
+        "A) Saída (venda), ou seja, o preço pelo qual o ativo seria negociado no mercado no presente momento.",
+        "B) Aquisição, corrigido apenas pela taxa contratada no início.",
+        "C) Emissão, garantindo que a cota nunca sofra volatilidade.",
+        "D) Resgate final projetado para o vencimento do título."
+    ],
+    correta: 0,
+    explicacao: "A marcação a mercado reflete o valor atual de venda dos ativos, evitando a transferência de riqueza entre cotistas que entram e saem do fundo."
+},
+{
+    id: 84,
+    topico: "Renda Fixa",
+    conceito: "Prazos de LCI e LCA (Regras Atuais)",
+    enunciado: "Sobre as Letras de Crédito Imobiliário (LCI) e do Agronegócio (LCA), considerando as atualizações recentes do CMN, o prazo mínimo de carência para resgate para o investidor pessoa física em títulos indexados ao CDI é de:",
+    opcoes: [
+        "A) 9 meses para LCA e 12 meses para LCI.",
+        "B) 90 dias para ambas.",
+        "C) 30 dias, desde que possuam garantia do FGC.",
+        "D) 12 meses para ambas, sem exceções."
+    ],
+    correta: 0,
+    explicacao: "Conforme a Resolução CMN 5.118/24, o prazo mínimo de carência para LCIs passou para 12 meses e para LCAs para 9 meses (no caso de títulos atrelados ao CDI/pós-fixados)."
+},
+{
+    id: 85,
+    topico: "Gestão de Risco",
+    conceito: "Risco de Liquidez",
+    enunciado: "O risco de liquidez é caracterizado pela possibilidade de um investidor:",
+    opcoes: [
+        "A) Não conseguir vender um ativo pelo seu preço justo no momento desejado por falta de compradores.",
+        "B) Sofrer perdas devido à variação das taxas de juros no mercado.",
+        "C) Sofrer perdas devido ao não pagamento (calote) pelo emissor do título.",
+        "D) Ver o seu poder de compra diminuir por causa da inflação alta."
+    ],
+    correta: 0,
+    explicacao: "Risco de liquidez é a dificuldade de converter um ativo em dinheiro rapidamente sem que haja uma perda significativa de valor."
+},
+{
+    id: 86,
+    topico: "Fundos de Investimento",
+    conceito: "Taxa de Performance (Linha d'Água)",
+    enunciado: "A regra da 'Linha d'Água' (High Water Mark) na cobrança de taxa de performance em fundos de investimento impede que:",
+    opcoes: [
+        "A) O gestor cobre taxa de performance sobre uma valorização que apenas recupera perdas de períodos anteriores.",
+        "B) A taxa de performance seja superior a 20% do que exceder o benchmark.",
+        "C) O administrador cobre taxa de administração e performance no mesmo mês.",
+        "D) Fundos de renda fixa cobrem qualquer tipo de taxa além da administrativa."
+    ],
+    correta: 0,
+    explicacao: "A linha d'água garante que a taxa de performance só seja cobrada quando o valor da cota superar o seu valor histórico mais alto em que a taxa já foi paga."
+},
+{
+    id: 87,
+    topico: "Economia e Finanças",
+    conceito: "PIB (Produto Interno Bruto)",
+    enunciado: "O PIB é a soma de todos os bens e serviços finais produzidos em um país em um determinado período. Pela ótica da despesa, ele é composto por:",
+    opcoes: [
+        "A) Consumo das Famílias + Investimentos + Gastos do Governo + (Exportações - Importações).",
+        "B) Somatória de todos os lucros das empresas listadas na bolsa de valores.",
+        "C) Arrecadação total de impostos menos os juros da dívida pública.",
+        "D) Saldo da Balança Comercial mais a reserva de ouro do Banco Central."
+    ],
+    correta: 0,
+    explicacao: "A fórmula do PIB pela despesa é C + I + G + (X - M), representando consumo, investimentos, gastos governamentais e o saldo comercial."
+},
+{
+    id: 88,
+    topico: "Previdência Complementar",
+    conceito: "Portabilidade",
+    enunciado: "Sobre a portabilidade em planos de previdência complementar (PGBL/VGBL), é correto afirmar que:",
+    opcoes: [
+        "A) Não há incidência de Imposto de Renda no momento da transferência dos recursos entre planos.",
+        "B) O investidor pode resgatar o dinheiro para sua conta e depositar no novo banco em até 5 dias.",
+        "C) É permitida a troca de um plano PGBL para um VGBL para aproveitar o benefício fiscal.",
+        "D) A portabilidade só pode ser feita se o investidor mudar de regime de tributação (Progressivo para Regressivo)."
+    ],
+    correta: 0,
+    explicacao: "A portabilidade é uma transferência direta entre instituições, sem passar pela conta do cliente, o que evita o fato gerador do Imposto de Renda."
+},
+{
+    id: 89,
+    topico: "Renda Variável",
+    conceito: "Juros sobre Capital Próprio (JCP)",
+    enunciado: "Diferente dos Dividendos, que são isentos de IR para a pessoa física, os Juros sobre Capital Próprio (JCP) recebidos pelo investidor:",
+    opcoes: [
+        "A) São tributados na fonte à alíquota de 15%.",
+        "B) São tributados à alíquota de 20% no ajuste anual.",
+        "C) Gozam da mesma isenção de vendas até $R\$ 20.000$ por mês.",
+        "D) São tributados apenas se o investidor vender as ações no mesmo dia (Day Trade)."
+    ],
+    correta: 0,
+    explicacao: "O JCP é considerado uma despesa para a empresa e um rendimento tributável para o investidor, sofrendo retenção de 15% de IR na fonte."
+},
+{
+    id: 90,
+    topico: "Renda Fixa e Derivativos",
+    conceito: "Mercado Futuro vs Mercado a Termo",
+    enunciado: "A principal diferença entre o Mercado a Termo e o Mercado Futuro reside no fato de que o Mercado Futuro possui:",
+    opcoes: [
+        "A) Ajuste diário de posições e maior padronização dos contratos.",
+        "B) Liquidação financeira apenas na data de vencimento final.",
+        "C) Contratos customizados conforme a necessidade exclusiva das partes.",
+        "D) Isenção total de taxas de corretagem por ser negociado em bolsa."
+    ],
+    correta: 0,
+    explicacao: "No mercado futuro, os ganhos e perdas são apurados diariamente (ajuste diário), enquanto no termo a liquidação ocorre apenas no vencimento."
+}            
         ];
 
      let questoesRodada = [];
