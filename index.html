@@ -376,22 +376,36 @@
             }
         ];
 
-        let questoesRodada = [];
+     let questoesRodada = [];
         let respostasUsuario = {};
-        let ultimosIds = [];
+        
+        // Tenta recuperar os IDs da última rodada salvos no navegador. Se não tiver, cria um array vazio.
+        let ultimosIds = JSON.parse(localStorage.getItem('ultimosIdsCPA') || '[]');
 
         function iniciarQuiz() {
             respostasUsuario = {};
             document.getElementById('quiz-page').style.display = 'block';
             document.getElementById('completion-page').style.display = 'none';
             
-            // Lógica para sortear 10 questões evitando repetir a rodada imediatamente anterior
+            // Filtra o banco removendo as questões que apareceram na rodada anterior
             let filtradas = BANCO_QUESTOES.filter(q => !ultimosIds.includes(q.id));
-            if(filtradas.length < 10) filtradas = BANCO_QUESTOES; // Fallback caso o banco zere
             
+            // IMPORTANTE: Se o número de questões que sobrou for menor que 10,
+            // significa que você já viu quase todo o banco. Para não quebrar o app, 
+            // ele limpa o filtro e usa o banco completo novamente.
+            if(filtradas.length < 10) {
+                filtradas = BANCO_QUESTOES;
+            }
+            
+            // Sorteia a ordem e corta exatamente 10 questões
             questoesRodada = filtradas.sort(() => 0.5 - Math.random()).slice(0, 10);
+            
+            // Salva os IDs dessas 10 novas questões no 'cartão de memória' do navegador
             ultimosIds = questoesRodada.map(q => q.id);
+            localStorage.setItem('ultimosIdsCPA', JSON.stringify(ultimosIds));
 
+            const container = document.getElementById('questions-container');
+            container.innerHTML = '';
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
 
