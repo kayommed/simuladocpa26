@@ -1560,13 +1560,18 @@ explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lu
                 const optBox = document.getElementById(`options-box-${idx}`);
                 
                 // Exibe as opções embaralhadas
-                q.opcoesEmbaralhadas.forEach((opt, optIdx) => {
+              q.opcoesEmbaralhadas.forEach((opt, optIdx) => {
+                    // Remove "A) ", "B) ", etc. da string original
+                    let textoLimpo = opt.replace(/^[A-E]\)[\s-]*/, "");
+                    // Cria uma nova letra baseada na posição (0=A, 1=B, 2=C, 3=D)
+                    let novaLetra = String.fromCharCode(65 + optIdx); 
+
                     const label = document.createElement('label');
                     label.className = 'option';
                     label.id = `label-${idx}-${optIdx}`;
                     label.innerHTML = `
                         <input type="radio" name="question-${idx}" value="${optIdx}" onclick="registrarResposta(${idx}, ${optIdx})">
-                        ${opt}
+                        <strong>${novaLetra})</strong> &nbsp; ${textoLimpo}
                     `;
                     optBox.appendChild(label);
                 });
