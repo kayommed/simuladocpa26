@@ -1688,15 +1688,19 @@ explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lu
                 
                 let htmlOptions = '';
                 // Utiliza a lista embaralhada na hora de renderizar a revisão
-                q.opcoesEmbaralhadas.forEach((opt, optIdx) => {
+             q.opcoesEmbaralhadas.forEach((opt, optIdx) => {
                     let cssClass = '';
                     if (optIdx === q.novoIndiceCorreto) cssClass = 'correct-answer';
                     if (respostasUsuario[idx] === optIdx && optIdx !== q.novoIndiceCorreto) cssClass = 'wrong-answer';
 
+                    // Limpa o texto e gera a letra certinha
+                    let textoLimpo = opt.replace(/^[A-E]\)[\s-]*/, "");
+                    let novaLetra = String.fromCharCode(65 + optIdx); 
+
                     htmlOptions += `
                         <div class="option ${cssClass}">
                             <input type="radio" disabled ${respostasUsuario[idx] === optIdx ? 'checked' : ''}>
-                            ${opt}
+                            <strong>${novaLetra})</strong> &nbsp; ${textoLimpo}
                         </div>
                     `;
                 });
