@@ -237,9 +237,9 @@
     </div>
 
 <script>
-        // Função para embaralhar as alternativas (AGORA DENTRO DO SCRIPT)
+        // ✅ CORRETO: A função deve ficar AQUI DENTRO
         function embaralharArray(array) {
-            let arrayCopia = [...array]; // Cria uma cópia para não alterar o banco original
+            let arrayCopia = [...array];
             for (let i = arrayCopia.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [arrayCopia[i], arrayCopia[j]] = [arrayCopia[j], arrayCopia[i]];
@@ -247,7 +247,7 @@
             return arrayCopia;
         }
 
-        // Banco de Dados robusto com questões retiradas dos seus anexos
+        // Banco de Dados das questões
         const BANCO_QUESTOES = [
             {
               id: 1,
