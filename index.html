@@ -236,6 +236,16 @@
         </div>
     </div>
 
+    // Função para embaralhar as alternativas
+function embaralharArray(array) {
+    let arrayCopia = [...array]; // Cria uma cópia para não alterar o banco original
+    for (let i = arrayCopia.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arrayCopia[i], arrayCopia[j]] = [arrayCopia[j], arrayCopia[i]];
+    }
+    return arrayCopia;
+}
+    
     <script>
         // Banco de Dados robusto com questões retiradas dos seus anexos
         const BANCO_QUESTOES = [
