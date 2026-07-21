@@ -236,17 +236,17 @@
         </div>
     </div>
 
-    // Função para embaralhar as alternativas
-function embaralharArray(array) {
-    let arrayCopia = [...array]; // Cria uma cópia para não alterar o banco original
-    for (let i = arrayCopia.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arrayCopia[i], arrayCopia[j]] = [arrayCopia[j], arrayCopia[i]];
-    }
-    return arrayCopia;
-}
-    
-    <script>
+<script>
+        // Função para embaralhar as alternativas (AGORA DENTRO DO SCRIPT)
+        function embaralharArray(array) {
+            let arrayCopia = [...array]; // Cria uma cópia para não alterar o banco original
+            for (let i = arrayCopia.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arrayCopia[i], arrayCopia[j]] = [arrayCopia[j], arrayCopia[i]];
+            }
+            return arrayCopia;
+        }
+
         // Banco de Dados robusto com questões retiradas dos seus anexos
         const BANCO_QUESTOES = [
             {
@@ -963,7 +963,7 @@ function embaralharArray(array) {
         "D) $R\$ 500.000,00$, que é o limite máximo permitido para investidores qualificados."
     ],
     correta: 0,
-    explicacao: "O FGC garante até $R\$ 250.000$ por CPF e por instituição/conglomerado. No entanto, existe um teto global de $R\$ 1.000.000$ a cada 4 anos. Como ele tem 1,25 milhão no total, ele receberá apenas o teto de 1 milhão
+    explicacao: "O FGC garante até $R\$ 250.000$ por CPF e por instituição/conglomerado. No entanto, existe um teto global de $R\$ 1.000.000$ a cada 4 anos. Como ele tem 1,25 milhão no total, ele receberá apenas o teto de 1 milhão."
 },
 {
 id: 52,
@@ -1513,10 +1513,10 @@ explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lu
 },            
         ];
 
-     let questoesRodada = [];
+        let questoesRodada = [];
         let respostasUsuario = {};
         
-        // Tenta recuperar os IDs da última rodada salvos no navegador. Se não tiver, cria um array vazio.
+        // Tenta recuperar os IDs da última rodada salvos no navegador
         let ultimosIds = JSON.parse(localStorage.getItem('ultimosIdsCPA') || '[]');
 
         function iniciarQuiz() {
@@ -1527,9 +1527,6 @@ explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lu
             // Filtra o banco removendo as questões que apareceram na rodada anterior
             let filtradas = BANCO_QUESTOES.filter(q => !ultimosIds.includes(q.id));
             
-            // IMPORTANTE: Se o número de questões que sobrou for menor que 10,
-            // significa que você já viu quase todo o banco. Para não quebrar o app, 
-            // ele limpa o filtro e usa o banco completo novamente.
             if(filtradas.length < 10) {
                 filtradas = BANCO_QUESTOES;
             }
@@ -1537,16 +1534,19 @@ explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lu
             // Sorteia a ordem e corta exatamente 10 questões
             questoesRodada = filtradas.sort(() => 0.5 - Math.random()).slice(0, 10);
             
-            // Salva os IDs dessas 10 novas questões no 'cartão de memória' do navegador
             ultimosIds = questoesRodada.map(q => q.id);
             localStorage.setItem('ultimosIdsCPA', JSON.stringify(ultimosIds));
 
-            const container = document.getElementById('questions-container');
-            container.innerHTML = '';
+            // Removida a declaração duplicada da variável 'container'
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
 
             questoesRodada.forEach((q, idx) => {
+                // ✨ LÓGICA DE EMBARALHAMENTO APLICADA AQUI ✨
+                let textoRespostaOriginal = q.opcoes[q.correta]; // Guarda a resposta certa
+                q.opcoesEmbaralhadas = embaralharArray(q.opcoes); // Mistura as opções
+                q.novoIndiceCorreto = q.opcoesEmbaralhadas.indexOf(textoRespostaOriginal); // Acha onde ela foi parar
+
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.innerHTML = `
@@ -1558,7 +1558,9 @@ explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lu
                 container.appendChild(card);
 
                 const optBox = document.getElementById(`options-box-${idx}`);
-                q.opcoes.forEach((opt, optIdx) => {
+                
+                // Exibe as opções embaralhadas
+                q.opcoesEmbaralhadas.forEach((opt, optIdx) => {
                     const label = document.createElement('label');
                     label.className = 'option';
                     label.id = `label-${idx}-${optIdx}`;
@@ -1574,7 +1576,6 @@ explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lu
         function registrarResposta(qIdx, optIdx) {
             respostasUsuario[qIdx] = optIdx;
             
-            // Estilização visual da opção selecionada pelo usuário
             const parent = document.getElementById(`options-box-${qIdx}`);
             const labels = parent.getElementsByTagName('label');
             for(let i=0; i<labels.length; i++) {
@@ -1596,7 +1597,6 @@ explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lu
             let acertos = 0;
             let performanceTopicos = {};
 
-            // Inicializa métricas de tópicos
             questoesRodada.forEach(q => {
                 if(!performanceTopicos[q.topico]) {
                     performanceTopicos[q.topico] = { total: 0, acertos: 0, conceitosErrados: [], conceitosAcertados: [] };
@@ -1604,10 +1604,10 @@ explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lu
                 performanceTopicos[q.topico].total++;
             });
 
-            // Processa respostas
             questoesRodada.forEach((q, idx) => {
                 const userAns = respostasUsuario[idx];
-                const acertou = (userAns === q.correta);
+                // Compara a resposta do usuário com o NOVO índice correto após embaralhar
+                const acertou = (userAns === q.novoIndiceCorreto);
 
                 if(acertou) {
                     acertos++;
@@ -1618,15 +1618,11 @@ explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lu
                 }
             });
 
-            // Exibe Placar
             document.getElementById('display-score').innerText = `${acertos}/10`;
             const pct = (acertos / 10) * 100;
             document.getElementById('display-percent').innerText = `Aproveitamento Global: ${pct}%`;
 
-            // Processa os 4 Quadrantes de Recomendação Teórica
             processarRecomendacoes(performanceTopicos);
-
-            // Renderiza tela de revisão
             renderizarRevisao();
         }
 
@@ -1656,7 +1652,6 @@ explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lu
                     temMelhorar = true;
                 }
 
-                // Conceitos errados vão para o quadrante "O que Revisar"
                 dado.conceitosErrados.forEach(c => {
                     let li = document.createElement('li');
                     li.innerHTML = `Revisar a lógica e regras de: <em>${c}</em>`;
@@ -1664,7 +1659,6 @@ explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lu
                     temRevisar = true;
                 });
 
-                // Recomendações de aprofundamento de estudo
                 dado.conceitosErrados.forEach(c => {
                     let li = document.createElement('li');
                     li.innerHTML = `Estudar as pegadinhas de provas da ANBIMA focadas em <strong>${c}</strong>.`;
@@ -1688,10 +1682,11 @@ explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lu
                 card.className = 'card';
                 
                 let htmlOptions = '';
-                q.opcoes.forEach((opt, optIdx) => {
+                // Utiliza a lista embaralhada na hora de renderizar a revisão
+                q.opcoesEmbaralhadas.forEach((opt, optIdx) => {
                     let cssClass = '';
-                    if (optIdx === q.correta) cssClass = 'correct-answer';
-                    if (respostasUsuario[idx] === optIdx && optIdx !== q.correta) cssClass = 'wrong-answer';
+                    if (optIdx === q.novoIndiceCorreto) cssClass = 'correct-answer';
+                    if (respostasUsuario[idx] === optIdx && optIdx !== q.novoIndiceCorreto) cssClass = 'wrong-answer';
 
                     htmlOptions += `
                         <div class="option ${cssClass}">
@@ -1703,7 +1698,7 @@ explicacao: "A legislação dos FIIs exige a distribuição mínima de 95% do lu
 
                 card.innerHTML = `
                     <span class="topic-badge">${q.topico}</span>
-                    <div class="question-text">Questão ${idx + 1} ${respostasUsuario[idx] === q.correta ? '✅' : '❌'}</div>
+                    <div class="question-text">Questão ${idx + 1} ${respostasUsuario[idx] === q.novoIndiceCorreto ? '✅' : '❌'}</div>
                     <p style="white-space: pre-line;">${q.enunciado}</p>
                     <div>${htmlOptions}</div>
                     <div class="explanation-box">
